@@ -3,122 +3,305 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Amit Sharma</title>
+  <title>Amit Sharma | Software Developer</title>
+
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     body {
-      background-color: #f5f5f5;
-      color: #333;
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      color: #fff;
+      scroll-behavior: smooth;
+
+      /* 🔹 Custom cursor: teal circle SVG */
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><circle cx='16' cy='16' r='8' fill='%231abc9c'/></svg>") 16 16, auto;
     }
     header {
-      background-color: #222;
-      color: #fff;
-      padding: 1rem 2rem;
       text-align: center;
+      padding: 3rem 1rem;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
     }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .typed-text {
+      font-size: 1.5rem;
+      color: #1abc9c;
+    }
+
     nav {
-      margin-top: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(6px);
+      padding: 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     }
     nav a {
-      margin: 0 10px;
       color: #fff;
       text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
     }
+    nav a:hover {
+      color: #1abc9c;
+    }
+
     section {
-      padding: 2rem;
-      max-width: 1000px;
+      padding: 3rem 2rem;
+      max-width: 1200px;
       margin: auto;
     }
-    .projects, .skills {
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #1abc9c;
+    }
+
+    .card-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
     .card {
-      background: #fff;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      flex: 1 1 300px;
-      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      padding: 1.5rem;
+      border-radius: 10px;
+      flex: 1 1 280px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
     }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
     footer {
       text-align: center;
-      background: #222;
-      color: #fff;
-      padding: 1rem;
+      padding: 2rem;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
       margin-top: 2rem;
+    }
+
+    a {
+      color: #1abc9c;
+    }
+
+    .icons a {
+      margin: 0 10px;
+      color: #1abc9c;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+    }
+    .icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .resume-link {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #1abc9c;
+      padding: 0.7rem 1.5rem;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav a {
+        display: inline-block;
+        margin: 10px 8px;
+      }
+      .card-grid {
+        flex-direction: column;
+      }
+    }
+    .custom-cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #1abc9c;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s ease-out;
+      animation: cursorPulse 1.2s infinite ease-in-out;
+    }
+
+    @keyframes cursorPulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.5);
+      }
     }
   </style>
 </head>
 <body>
 
+<div id="particles-js"></div>
+
 <header>
   <h1>Amit Sharma</h1>
-  <p>Laravel | Web Applications | API Developer</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="typed-text"></div>
 </header>
 
-<section id="about">
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" data-aos="fade-up">
   <h2>About Me</h2>
   <p>
-    I am a Laravel developer with over 3 years of experience in building web applications and REST APIs. 
-    I have worked on internal enterprise solutions, social platforms, and real-time systems. 
-    I am passionate about clean code, team collaboration, and learning new technologies.
+    Software Developer with 3 years and 10 months of experience, specializing in backend development using Node.js and Express.js, along with some frontend work in Angular. 
+    Proficient in building scalable RESTful APIs and developing robust server-side applications.
   </p>
+
+  <a href="amit_sharma.pdf" class="resume-link" target="_blank">Download Resume</a>
+
+
 </section>
 
-<section id="projects">
+<section id="experience" data-aos="fade-up">
+  <h2>Experience</h2>
+  <div class="card-grid">
+    <div class="card" data-tilt>
+      <h3>Carina Softlabs Inc.</h3>
+      <p>Nov 2024 – May 2025<br>Full Stack Developer</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3>Pixler IT Solution Pvt Ltd</h3>
+      <p>Jul 2021 - Nov 2024<br>Software Developer</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3>Ypsilon IT Solutions</h3>
+      <p>Feb 2021 - Jul 2021<br>Trainee Developer</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects" data-aos="fade-up">
   <h2>Projects</h2>
-  <div class="projects">
-    <div class="card">
-      <h3>Technical Supplies (TECS)</h3>
-      <p>An internal enterprise solution integrating HRMS, CRM, and other business modules.</p>
-    </div>
-    <div class="card">
-      <h3>ArabiansAtHome</h3>
-      <p>A social app connecting Arabian horse enthusiasts and experts with features like profiles, messaging, and media sharing.</p>
-    </div>
-    <div class="card">
+  <div class="card-grid">
+    <div class="card" data-tilt>
       <h3>Popil Tunes</h3>
-      <p>An MP3 and OTT application where users can create karaoke clips, stream content, and connect with others.</p>
+      <p>MP3 + OTT App with karaoke features and social interactions.</p>
     </div>
-    <div class="card">
-      <h3>Millionaire Mind Games (MMG)</h3>
-      <p>A mobile gaming app where users play games, earn points, and redeem them for rewards. Worked on backend APIs and admin panel.</p>
+    <div class="card" data-tilt>
+      <h3>Millionaire Mind Games</h3>
+      <p>Gaming app with points system, reward redemption, and backend management.</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3>Technical Supplies (TECS)</h3>
+      <p>Enterprise solution integrating HRMS, CRM and more.</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3>ArabiansAtHome</h3>
+      <p>Social app for Arabian horse enthusiasts with media sharing and cloud integration.</p>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
-  <div class="skills">
-    <div class="card"><strong>Languages:</strong> PHP, JavaScript</div>
-    <div class="card"><strong>Frameworks:</strong> Laravel, Express.js, React.js, Angular</div>
-    <div class="card"><strong>Database:</strong> MySQL, MongoDB</div>
-    <div class="card"><strong>Tools:</strong> Git, Postman, VS Code</div>
+  <div class="card-grid">
+    <div class="card" data-tilt><strong>Backend:</strong> Node.js, Express.js</div>
+    <div class="card" data-tilt><strong>Frontend:</strong> Angular, JavaScript, HTML, CSS</div>
+    <div class="card" data-tilt><strong>Database:</strong> MySQL, MongoDB</div>
+    <div class="card" data-tilt><strong>Tools:</strong> Git, Postman</div>
   </div>
 </section>
 
-<section id="contact">
+<section id="contact" data-aos="fade-up">
   <h2>Contact</h2>
   <p>Email: amit.sharma@example.com</p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
-  <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+  <div class="icons">
+    <a href="https://www.linkedin.com/in/your-linkedin/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/your-github/" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
 </section>
 
-<footer>
-  <p>© 2025 Amit Sharma. All rights reserved.</p>
-</footer>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+  // Typed.js
+  new Typed(".typed-text", {
+    strings: ["Software Developer", "Node.js Developer", "Backend Engineer"],
+    typeSpeed: 60,
+    backSpeed: 30,
+    loop: true
+  });
 
+  // AOS Init
+  AOS.init();
+
+  // particles.js
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 60 },
+      color: { value: "#1abc9c" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: 3 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#1abc9c",
+        opacity: 0.4,
+        width: 1
+      },
+      move: { enable: true, speed: 2 }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: { onhover: { enable: true, mode: "repulse" } },
+      modes: { repulse: { distance: 100 } }
+    }
+  });
+</script>
+<script>
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
+  document.body.appendChild(cursor);
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  });
+</script>
 </body>
 </html>
