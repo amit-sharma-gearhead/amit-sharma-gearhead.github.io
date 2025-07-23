@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Amit Sharma</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .projects, .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex: 1 1 300px;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Amit Sharma</h1>
+  <p>Laravel | Web Applications | API Developer</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am a Laravel developer with over 3 years of experience in building web applications and REST APIs. 
+    I have worked on internal enterprise solutions, social platforms, and real-time systems. 
+    I am passionate about clean code, team collaboration, and learning new technologies.
+  </p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Technical Supplies (TECS)</h3>
+      <p>An internal enterprise solution integrating HRMS, CRM, and other business modules.</p>
+    </div>
+    <div class="card">
+      <h3>ArabiansAtHome</h3>
+      <p>A social app connecting Arabian horse enthusiasts and experts with features like profiles, messaging, and media sharing.</p>
+    </div>
+    <div class="card">
+      <h3>Popil Tunes</h3>
+      <p>An MP3 and OTT application where users can create karaoke clips, stream content, and connect with others.</p>
+    </div>
+    <div class="card">
+      <h3>Millionaire Mind Games (MMG)</h3>
+      <p>A mobile gaming app where users play games, earn points, and redeem them for rewards. Worked on backend APIs and admin panel.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="card"><strong>Languages:</strong> PHP, JavaScript</div>
+    <div class="card"><strong>Frameworks:</strong> Laravel, Express.js, React.js, Angular</div>
+    <div class="card"><strong>Database:</strong> MySQL, MongoDB</div>
+    <div class="card"><strong>Tools:</strong> Git, Postman, VS Code</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: amit.sharma@example.com</p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+  <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+</section>
+
+<footer>
+  <p>© 2025 Amit Sharma. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
