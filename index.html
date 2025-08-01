@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Portfolio of Amit Sharma, a web developer specializing in Node.js, MERN, and MEAN stack projects.">
+  <meta name="keywords" content="Amit Sharma, Web Developer, Node.js, MERN, MEAN, Portfolio">
+  <meta name="author" content="Amit Sharma">
   <title>Amit Sharma | Software Developer</title>
 
   <!-- AOS CSS -->
@@ -364,7 +367,45 @@
       cursor: pointer;
       color: #1abc9c;
     }
+
+    .skill-card h3 i {
+      margin-right: 10px;
+      color: #007acc; /* or your brand color */
+    }
+
+    .skill-card ul {
+      padding-left: 18px;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .skill-card {
+      min-height: 220px; /* adjust as needed */
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .skill-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -379,7 +420,7 @@
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
-  <!-- <a href="#skills">Skills</a> -->
+  <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -456,15 +497,39 @@
 </section>
 
 
-<!-- <section id="skills" data-aos="fade-up">
+<section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="card-grid">
-    <div class="card" data-tilt><strong>Backend:</strong> Node.js, Express.js</div>
-    <div class="card" data-tilt><strong>Frontend:</strong> Angular, JavaScript, HTML, CSS</div>
-    <div class="card" data-tilt><strong>Database:</strong> MySQL, MongoDB</div>
-    <div class="card" data-tilt><strong>Tools:</strong> Git, Postman</div>
+
+    <div class="card" data-tilt>
+      <strong><i class="fas fa-server"></i> Backend:</strong>
+      Node.js, Express.js, REST API Development, MVC Architecture
+    </div>
+
+    <div class="card" data-tilt>
+      <strong><i class="fas fa-code"></i> Frontend:</strong>
+      Angular, JavaScript, HTML, CSS, jQuery (Basic)
+    </div>
+
+    <div class="card" data-tilt>
+      <strong><i class="fas fa-database"></i> Database:</strong>
+      MySQL, MongoDB
+    </div>
+
+    <div class="card" data-tilt>
+      <strong><i class="fas fa-tools"></i> Tools:</strong>
+      Git, GitHub, Postman
+    </div>
+
+    <div class="card" data-tilt>
+      <strong><i class="fas fa-cogs"></i> Other:</strong>
+      API Design, Version Control
+    </div>
+
   </div>
-</section> -->
+</section>
+
+
 
 <section id="contact" data-aos="fade-up">
   <h2>Contact</h2>
