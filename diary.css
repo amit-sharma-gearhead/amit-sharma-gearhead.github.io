@@ -1,0 +1,274 @@
+/* Floating Button */
+#diary-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #292018;
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+}
+
+/* Diary Modal Background */
+.diary-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.9);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Diary Modal Content */
+.diary-modal-content {
+  background: radial-gradient(circle at top left, #f6f1d3, #d8c79b);
+  border: 5px double #3e2f1c;
+  padding: 2rem;
+  width: 90%;
+  max-width: 700px;
+  height: 80%;
+  box-shadow: 0 0 20px #402e1f;
+  position: relative;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  color: #3e2f1c;
+}
+
+.diary-modal-content::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 2px dashed rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.diary-modal-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#diary-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  color: #3e2f1c;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+#diary-message-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 1rem;
+}
+
+#diary-message-area p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.user {
+  font-weight: bold;
+}
+
+.response {
+  font-style: italic;
+  color: #5b3b1f;
+}
+
+#diary-user-input {
+  height: 60px;
+  resize: none;
+  border: 1px solid #a67c52;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #3e2f1c;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#diary-send-btn {
+  background: #3e2f1c;
+  color: #fff;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+#diary-message-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+#diary-message-area::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+}
+
+#diary-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 28px;
+  padding: 15px;
+  background: linear-gradient(135deg, #333, #111);
+  border: 2px solid #aaa;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 0 12px #c9faff, 0 0 24px #88f0f7;
+  transition: transform 0.3s ease;
+  animation: pulse-wand 2s infinite;
+}
+
+#diary-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px #fffac0, 0 0 36px #ffd700;
+}
+
+@keyframes pulse-wand {
+  0% {
+    box-shadow: 0 0 8px #8df0ff, 0 0 16px #00f7ff;
+  }
+  50% {
+    box-shadow: 0 0 16px #fefcc3, 0 0 32px #ffd700;
+  }
+  100% {
+    box-shadow: 0 0 8px #8df0ff, 0 0 16px #00f7ff;
+  }
+}
+
+#diary-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+  transition: transform 0.2s;
+}
+
+#diary-button:hover {
+  transform: scale(1.2);
+}
+
+.wand-icon {
+  stroke: #fff;
+  filter: drop-shadow(0 0 6px #fff);
+  animation: sparkle 1.5s infinite alternate;
+}
+
+.glow-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 80%);
+  animation: glow-pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px #fdf6d8;
+  }
+  50% {
+    box-shadow: 0 0 16px #c7b377;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    stroke: #fff;
+  }
+  100% {
+    stroke: #e3d1a1;
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.wand-trail {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #e6d7a5;
+  pointer-events: none;
+  animation: trail-fade 0.5s forwards;
+  z-index: 9999;
+}
+
+@keyframes trail-fade {
+  to {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+#diary-button::before,
+#diary-button::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #fff;
+  animation: twinkle 1.5s infinite ease-in-out alternate;
+}
+
+#diary-button::after {
+  top: 5px;
+  right: 5px;
+}
+
+#diary-button::before {
+  bottom: 5px;
+  left: 5px;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1.3); }
+}
