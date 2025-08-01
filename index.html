@@ -74,10 +74,11 @@
     }
 
     .card-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Only 2 columns */
       gap: 20px;
     }
+
     .card {
       background: rgba(255,255,255,0.08);
       padding: 1.5rem;
@@ -132,6 +133,12 @@
       z-index: -1;
     }
 
+    .company {
+      text-decoration: none;
+      color: #1abc9c;
+      font-weight: 600;
+    }
+
     @media screen and (max-width: 768px) {
       nav a {
         display: inline-block;
@@ -141,6 +148,42 @@
         flex-direction: column;
       }
     }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+
+    .close {
+      padding: 10px;
+      font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .typed-text {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        cursor: auto !important;
+      }
+      .custom-cursor {
+        display: none;
+      }
+    }
+
+
+
     .custom-cursor {
       width: 20px;
       height: 20px;
@@ -162,6 +205,165 @@
         transform: translate(-50%, -50%) scale(1.5);
       }
     }
+
+    @media screen and (max-width: 768px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mobile */
+
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 10px 0;
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .typed-text {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .custom-cursor {
+        display: none;
+      }
+
+      body {
+        cursor: default;
+      }
+    }
+
+    .modal-content {
+      width: 90vw;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    /* ===== Responsive Fixes for Mobile Devices ===== */
+
+    @media (max-width: 768px) {
+      /* Stack nav items vertically */
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 1rem;
+      }
+
+      /* Disable custom cursor */
+      .custom-cursor {
+        display: none !important;
+      }
+
+      body {
+        cursor: default !important;
+      }
+
+      /* Project card grid - 1 column */
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Adjust modal width */
+      .modal-content {
+        width: 90vw;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* Smaller fonts on very small devices */
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .typed-text {
+        font-size: 1rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      p, .project-description, .modal-content p {
+        font-size: 0.95rem;
+      }
+
+      /* Ensure form fields and buttons don't overflow */
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        width: 100%;
+        font-size: 1rem;
+      }
+    }
+
+
+  </style>
+  <!-- Modal CSS -->
+  <style>
+    .project-modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(5px);
+      overflow-y: auto;
+    }
+
+    .project-modal:target {
+      display: block;
+    }
+
+
+    .modal-content {
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      margin: 5% auto;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    }
+
+    .modal-content h2 {
+      color: #1abc9c;
+      margin-top: 0;
+    }
+
+    .modal-content ul {
+      margin-left: 1.5rem;
+    }
+
+    .close {
+      float: right;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #1abc9c;
+    }
   </style>
 </head>
 <body>
@@ -177,7 +379,7 @@
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
+  <!-- <a href="#skills">Skills</a> -->
   <a href="#contact">Contact</a>
 </nav>
 
@@ -190,6 +392,12 @@
 
   <a href="amit_sharma.pdf" class="resume-link" target="_blank">Download Resume</a>
 
+  <a href="assets/amit_sharma.pdf" download="Amit_Sharma_Resume" class="btn">
+    Download Resume
+  </a>
+
+
+
 
 </section>
 
@@ -197,15 +405,15 @@
   <h2>Experience</h2>
   <div class="card-grid">
     <div class="card" data-tilt>
-      <h3>Carina Softlabs Inc.</h3>
+      <h3><a class="company" href="https://carinasoftlabs.com" target="_blank" rel="noopener noreferrer">Carina Softlabs Inc.</a></h3>
       <p>Nov 2024 – May 2025<br>Full Stack Developer</p>
     </div>
     <div class="card" data-tilt>
-      <h3>Pixler IT Solution Pvt Ltd</h3>
+      <h3><a class="company" href="https://www.pixlritllc.com/" target="_blank" rel="noopener noreferrer">Pixler IT Solution Pvt Ltd</a></h3>
       <p>Jul 2021 - Nov 2024<br>Software Developer</p>
     </div>
     <div class="card" data-tilt>
-      <h3>Ypsilon IT Solutions</h3>
+      <h3><a class="company" href="http://www.ypsilonitsolutions.com/" target="_blank" rel="noopener noreferrer">Ypsilon IT Solutions</a></h3>
       <p>Feb 2021 - Jul 2021<br>Trainee Developer</p>
     </div>
   </div>
@@ -215,25 +423,42 @@
   <h2>Projects</h2>
   <div class="card-grid">
     <div class="card" data-tilt>
-      <h3>Popil Tunes</h3>
+      <h3><a class="company" href="#modal-popil-tunes">Popil Tunes</a></h3>
       <p>MP3 + OTT App with karaoke features and social interactions.</p>
     </div>
     <div class="card" data-tilt>
-      <h3>Millionaire Mind Games</h3>
-      <p>Gaming app with points system, reward redemption, and backend management.</p>
+      <h3><a class="company" href="#modal-mmg">Millionaire Mind Games</a></h3>
+      <p>Mobile Gaming Application</p>
     </div>
     <div class="card" data-tilt>
-      <h3>Technical Supplies (TECS)</h3>
+      <h3><a class="company" href="#modal-tecs">Technical Supplies (TECS)</a></h3>
       <p>Enterprise solution integrating HRMS, CRM and more.</p>
     </div>
     <div class="card" data-tilt>
-      <h3>ArabiansAtHome</h3>
-      <p>Social app for Arabian horse enthusiasts with media sharing and cloud integration.</p>
+      <h3><a class="company" href="#modal-arabiansathome">ArabiansAtHome</a></h3>
+      <p>Social app for Arabian horse enthusiasts with media sharing.</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3><a class="company" href="#modal-kenocarwash">Keno Car Wash</a></h3>
+      <p>Car Wash Mobile Application</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3><a class="company" href="#modal-10000shotclub">10000shotclub</a></h3>
+      <p>A web app for kids to log basketball shots and compete on a summer leaderboard.</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3><a class="company" href="#modal-hannahmorr">Hannahmorr</a></h3>
+      <p>A luxury villa and hotel booking platform</p>
+    </div>
+    <div class="card" data-tilt>
+      <h3><a class="company" href="#modal-mahigold">Mahigold</a></h3>
+      <p>A mobile app for selling grains and farm produce.</p>
     </div>
   </div>
 </section>
 
-<section id="skills" data-aos="fade-up">
+
+<!-- <section id="skills" data-aos="fade-up">
   <h2>Skills</h2>
   <div class="card-grid">
     <div class="card" data-tilt><strong>Backend:</strong> Node.js, Express.js</div>
@@ -241,16 +466,297 @@
     <div class="card" data-tilt><strong>Database:</strong> MySQL, MongoDB</div>
     <div class="card" data-tilt><strong>Tools:</strong> Git, Postman</div>
   </div>
-</section>
+</section> -->
 
 <section id="contact" data-aos="fade-up">
   <h2>Contact</h2>
-  <p>Email: amit.sharma@example.com</p>
+  <p><strong>Email:</strong> <a href="mailto:amitsharma5934.as@gmail.com">amitsharma5934.as@gmail.com</a></p>
+  <br>
   <div class="icons">
-    <a href="https://www.linkedin.com/in/your-linkedin/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/your-github/" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/amit-sharma-83a5b3184/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/amit-sharma-gearhead/" target="_blank"><i class="fab fa-github"></i></a>
   </div>
 </section>
+
+<!--******************************* Models ************************************** -->
+
+<!-- Model Of Popil Tunes -->
+<div id="modal-popil-tunes" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-music" style="margin-right: 8px; color: #1abc9c;"></i>Popil Tunes</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🎯 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      A feature-rich MP3 + OTT application offering karaoke clip creation, video streaming, and social connectivity
+      through following, likes, and comments—enhancing user engagement and entertainment.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend APIs & logic</li>
+      <li><i class="fab fa-angular" style="color: #dd0031;"></i> Angular – Admin & Artist dashboards</li>
+      <li><i class="fas fa-database"></i> MongoDB – NoSQL database for dynamic content</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>🚀 Developed robust backend APIs for MP3 streaming and OTT media delivery</li>
+      <li>🤝 Integrated real-time social features: follow, like, and comment systems</li>
+      <li>🧩 Built modular admin and artist panels using Angular for easy content management</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Model Of Millionaire Mind Games -->
+<div id="modal-mmg" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-gamepad" style="margin-right: 8px; color: #1abc9c;"></i>Millionaire Mind Games</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🎯 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      A mobile game application where users can play interactive games, earn points, and redeem them for rewards.
+      The platform includes dynamic roles such as Admin, Manager, and Seller with dedicated dashboards.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend API development</li>
+      <li><i class="fab fa-react" style="color: #61dafb;"></i> React.js – Admin, Manager & Seller dashboards</li>
+      <li><i class="fas fa-database"></i> MongoDB – Flexible NoSQL database for storing user/game data</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>🎮 Developed backend APIs for the mobile application and role-based panels</li>
+      <li>📊 Implemented game logic, points tracking, and redemption workflows</li>
+      <li>🔐 Managed authentication, user data, and gameplay progress in MongoDB</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- Model Of Technical Supplies (TECS) -->
+<div id="modal-tecs" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-network-wired" style="margin-right: 8px; color: #1abc9c;"></i>Technical Supplies (TECS)</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🏢 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      An internal enterprise solution integrating HRMS, CRM, Overtime, Cafeteria, and other business modules—streamlining employee and administrative operations across departments.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend APIs and microservices</li>
+      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel Lumen – Lightweight PHP framework for RESTful APIs</li>
+      <li><i class="fab fa-angular" style="color: #dd0031;"></i> Angular – User and admin dashboards</li>
+      <li><i class="fas fa-project-diagram"></i> Node-RED – Visual workflows and system automation</li>
+      <li><i class="fas fa-code"></i> Symfony / OrangeHRM – HR module integrations</li>
+      <li><i class="fas fa-database"></i> MySQL – Centralized relational database</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>⚙️ Developed and maintained features across HRMS, CRM, Overtime, and Cafeteria modules</li>
+      <li>🔧 Created RESTful APIs using both Node.js/Express.js and Laravel Lumen </li>
+      <li>📊 Optimized database performance and redesigned schemas for scalable data management</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Model Of ArabiansAtHome -->
+<div id="modal-arabiansathome" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-horse" style="margin-right: 8px; color: #1abc9c;"></i>ArabiansAtHome</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🌐 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      ArabiansAtHome is a social networking app designed for Arabian horse enthusiasts, breeders, and experts to connect, share, and explore content around Arabian horses.
+      The platform features user profiles, media posts, and interactive features accessible via mobile and admin dashboards.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend APIs for mobile and admin panels</li>
+      <li><i class="fab fa-react" style="color: #61dafb;"></i> React Native – Mobile application development</li>
+      <li><i class="fas fa-database"></i> MySQL – Relational database for structured user and media data</li>
+      <li><i class="fas fa-cloud-upload-alt" style="color: #34495e;"></i> Cloudinary – Cloud-based media storage and optimization</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>📱 Developed RESTful APIs for both the mobile app and admin dashboard</li>
+      <li>🗄️ Designed and optimized MySQL database schema for efficient data storage and fast retrieval</li>
+      <li>☁️ Integrated Cloudinary for image and video uploads, storage, and real-time delivery</li>
+      <li>🧑‍💻 Collaborated with frontend developers to ensure seamless backend–frontend integration</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Model Of Keno Car Wash -->
+<div id="modal-kenocarwash" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-car" style="margin-right: 8px; color: #1abc9c;"></i>Keno Car Wash</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🧽 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      A leading UAE-based on-demand car wash and detailing service app, offering eco-friendly, biodegradable, and dry-wash technology delivered by trained professionals to customers’ location on tap of a button.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Core API development</li>
+      <li><i class="fab fa-laravel" style="color: #f05340;"></i> Laravel – Admin panel and service dashboards</li>
+      <li><i class="fab fa-android" style="color: #3ddc84;"></i> Android – Native mobile app client</li>
+      <li><i class="fab fa-apple" style="color: #999;"></i> iOS – Native mobile app client</li>
+      <li><i class="fas fa-database"></i> MySQL – Backend relational database management</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">📱 Key Features</strong></p>
+    <ul style="line-height: 2;">
+      <li>On-demand & scheduled service bookings including monthly subscriptions, real-time tracking, Flexi Order, and multi-vehicle support</li>
+      <li>Live tracking of service provider (nicknamed “Ninja”), customizable in-app communication, and referral system</li>
+      <li>Eco-friendly dry washing, professional-grade biodegradable products, and premium car care experience</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>🛠 Designed and implemented RESTful APIs using Node.js/Express.js for mobile app and backend services</li>
+      <li>📊 Built and enhanced the Laravel-based admin dashboard to manage services, bookings, and user data</li>
+      <li>🤝 Collaborated with mobile dev teams to integrate APIs and ensure seamless mobile app performance</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Model Of 10000ShotClub -->
+<div id="modal-10000shotclub" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-basketball-ball" style="margin-right: 8px; color: #1abc9c;"></i>10000ShotClub</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🏀 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      A shot‑tracking platform built around the “10K Shot Challenge” — enabling users (ages elementary to college) to log basketball shooting sessions,
+      monitor daily and team progress, and compete via a real‑time leaderboard.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel – Web app, admin dashboard & RESTful APIs</li>
+      <li><i class="fab fa-react" style="color: #61dafb;"></i> React Native – Mobile app for iOS/Android</li>
+      <li><i class="fas fa-database"></i> MySQL – Database for user sessions, shots logs, and leaderboards</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💡 Key Details</strong></p>
+    <ul style="line-height: 2;">
+      <li>Includes team and individual shot tracking with real-time updates on leaderboards</li>
+      <li>Supports structured daily routines (max 200 shots/day), challenge campaigns, and personalized tracking goals</li>
+      <li>Feature‑rich web dashboard for coaches/admins and cross‑platform React Native app for end users</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>🚀 Built and maintained Laravel-based web app and APIs powering both the admin portal and app backend</li>
+      <li>📊 Developed administrative features for managing users, teams, shooting data, and leaderboards</li>
+      <li>🗃 Designed and optimized MySQL schemas and queries for real-time performance and scalability</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Model Of HannahMorr -->
+<div id="modal-hannahmorr" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-hotel" style="margin-right: 8px; color: #1abc9c;"></i>HannahMorr</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🌐 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      HannahMorr is a luxury travel web application specializing in exclusive villa bookings and curated accommodations around the world.  
+      The platform features a sleek web UI and admin dashboard to manage listings, enquiries, memberships, and bookings.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel – Server-side web app, admin panel, and RESTful APIs</li>
+      <li><i class="fas fa-database"></i> MySQL – Structured database for villa listings, user data, and bookings</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>🛠 Developed and maintained Laravel-powered web application and admin backend</li>
+      <li>🗄 Designed and optimized MySQL schema for high-performance data retrieval and reliability</li>
+      <li>🔧 Implemented features for managing villa inventory, user memberships, enquiries, and booking workflows</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- Model Of Mahigold -->
+<div id="modal-mahigold" class="project-modal">
+  <div class="modal-content" data-aos="zoom-in">
+    <a href="#" class="close" title="Close">&times;</a>
+    <h2><i class="fas fa-seedling" style="margin-right: 8px; color: #1abc9c;"></i>Mahigold</h2>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🌾 Overview</strong></p>
+    <p style="line-height: 1.8;">
+      Mahigold is a mobile application developed for a private agricultural firm to directly sell its grains and farm produce to customers. The app allows users to browse, order, and get products delivered seamlessly, enhancing the firm’s digital outreach and operational efficiency.
+    </p>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
+    <ul style="line-height: 2;">
+      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel – RESTful APIs, web interface, and admin dashboard</li>
+      <li><i class="fab fa-react" style="color: #61dafb;"></i> React Native – Cross-platform mobile application</li>
+      <li><i class="fas fa-database"></i> MySQL – Structured database for inventory, orders, and customer data</li>
+    </ul>
+
+    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
+    <ul style="line-height: 2;">
+      <li>🔧 Developed Laravel-based REST APIs to power the mobile app and admin portal</li>
+      <li>📦 Implemented product listing, cart, order management, and delivery tracking features</li>
+      <li>📊 Handled MySQL database architecture, queries, and performance tuning</li>
+    </ul>
+
+    <div style="margin-top: 2rem; text-align: right;">
+      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+
+<!--******************************* Models ************************************** -->
+
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
@@ -263,7 +769,8 @@
     strings: ["Software Developer", "Node.js Developer", "Backend Engineer"],
     typeSpeed: 60,
     backSpeed: 30,
-    loop: true
+    loop: true,
+    showCursor: false
   });
 
   // AOS Init
@@ -303,5 +810,6 @@
     cursor.style.top = `${e.clientY}px`;
   });
 </script>
+
 </body>
 </html>
