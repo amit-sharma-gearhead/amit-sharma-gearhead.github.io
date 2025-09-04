@@ -388,3 +388,19 @@
     }
 
 
+
+
+nav .resume-btn {
+  background-color: #1abc9c;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+nav .resume-btn:hover {
+  background-color: #159f86;
+}
