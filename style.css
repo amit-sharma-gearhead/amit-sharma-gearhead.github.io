@@ -404,3 +404,9 @@ nav .resume-btn {
 nav .resume-btn:hover {
   background-color: #159f86;
 }
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
