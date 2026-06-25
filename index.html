@@ -3,41 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Amit Sharma - Backend Developer specializing in Node.js, Express.js. Explore projects, skills & contact info.">
+  <meta name="description" content="Amit Sharma - Backend Developer specializing in Node.js, Express.js, REST APIs, MongoDB & MySQL. 4 years of experience building scalable backend systems.">
   <meta name="keywords" content="Amit Sharma, Backend Developer, Node.js Developer, Express.js Developer, REST API Developer, Portfolio">
   <meta name="author" content="Amit Sharma">
-
-  <title>Amit Sharma - Backend Developer | Node.js, Express.js</title>
-
   <meta name="robots" content="index, follow">
+
+  <title>Amit Sharma — Backend Developer</title>
 
   <link rel="canonical" href="https://amit-sharma-gearhead.github.io/">
 
-  <meta property="og:title" content="Amit Sharma - Backend Developer" />
-  <meta property="og:description" content="Portfolio of Amit Sharma. Explore projects, skills, and contact information." />
+  <meta property="og:title" content="Amit Sharma — Backend Developer" />
+  <meta property="og:description" content="Portfolio of Amit Sharma. 4 years building scalable backend systems with Node.js, Express.js, MongoDB & MySQL." />
   <meta property="og:image" content="https://amit-sharma-gearhead.github.io/assets/images/preview-image.jpg" />
   <meta property="og:url" content="https://amit-sharma-gearhead.github.io/" />
   <meta property="og:type" content="website" />
 
-
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Amit Sharma",
-      "jobTitle": "Backend Developer",
-      "url": "https://amit-sharma-gearhead.github.io",
-      "sameAs": [
-        "https://www.linkedin.com/in/amit-sharma-83a5b3184/",
-        "https://github.com/amit-sharma-gearhead/"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Carina Softlabs Inc."
-      },
-      "knowsAbout": ["Node.js", "Express.js", "REST API", "MongoDB", "MySQL"]
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amit Sharma",
+    "jobTitle": "Backend Developer",
+    "url": "https://amit-sharma-gearhead.github.io",
+    "sameAs": [
+      "https://www.linkedin.com/in/amit-sharma-83a5b3184/",
+      "https://github.com/amit-sharma-gearhead/"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Carina Softlabs Inc."
+    },
+    "knowsAbout": ["Node.js", "Express.js", "REST API", "MongoDB", "MySQL"]
+  }
   </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
 
@@ -46,664 +49,702 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-54BX6RG7NC"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-54BX6RG7NC');
   </script>
-
 </head>
 <body>
 
 <div id="particles-js"></div>
+<div class="custom-cursor" id="cursor"></div>
 
+<!-- ======== HEADER ======== -->
 <header>
+  <div class="hero-label">Available for opportunities</div>
   <h1>Amit Sharma</h1>
   <div class="typed-text"></div>
+  <div class="hero-actions">
+    <a href="assets/amit_sharma.pdf" download="Amit_Sharma_Resume" class="btn btn-ghost">
+      <i class="fas fa-download"></i> Resume
+    </a>
+    <a href="#contact" class="btn btn-ghost">
+      <i class="fas fa-paper-plane"></i> Get in Touch
+    </a>
+  </div>
 </header>
 
-<nav>
+<!-- ======== NAV ======== -->
+<nav id="main-nav">
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
   <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
-  <a href="assets/amit_sharma.pdf" download="Amit_Sharma_Resume" >Resume</a>
   <a href="https://www.linkedin.com/in/amit-sharma-83a5b3184" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <!-- <a href="assets/amit_sharma.pdf" download="Amit_Sharma_Resume" class="resume-btn">Resume</a> -->
 </nav>
 
+<!-- ======== ABOUT ======== -->
 <section id="about" data-aos="fade-up">
-  <h2>About Me</h2>
+  <div class="section-header">
+    <!-- <span class="section-num">01</span> -->
+    <h2>About Me</h2>
+    <div class="section-line"></div>
+  </div>
+  
   <p>
-    I'm a Software Developer with 4 years of experience building scalable web applications and backend systems. My expertise lies in Node.js, Express.js, MongoDB, and MySQL, with a strong focus on developing secure RESTful APIs, optimizing database performance, and creating reliable server-side solutions.
-
-    Throughout my career, I've worked on diverse projects including gaming platforms, music and OTT applications, enterprise management systems, and social networking products. I enjoy solving complex technical challenges, improving application performance, and transforming business requirements into efficient, user-focused solutions.
-
-    When I'm not coding, I actively explore new technologies and best practices to build modern, scalable, and maintainable applications.
+    I'm a Software Developer with 4 years of experience building scalable web applications and backend systems. My expertise lies in Node.js, Express.js, MongoDB, and MySQL, with a strong focus on developing secure RESTful APIs, optimizing database performance, and creating reliable server-side solutions. 
+  </p>
+  <br>
+  <p>
+    Throughout my career, I've worked on diverse projects including gaming platforms, music and OTT applications, enterprise management systems, and social networking products. I enjoy solving complex technical challenges, improving application performance, and transforming business requirements into efficient, user-focused solutions. When I'm not coding, I actively explore new technologies and best practices to build modern, scalable, and maintainable applications.
   </p>
 
   <div class="about-highlights">
-    <div class="highlight-item">
-      <span>📍</span>
-      <span>Indore, India</span>
-    </div>
-
-    <div class="highlight-item">
-      <span>💼</span>
-      <span>4 Years Experience</span>
-    </div>
-
-    <div class="highlight-item">
-      <span>⚙️</span>
-      <span>Node.js & Express.js</span>
-    </div>
-
-    <div class="highlight-item">
-      <span>🗄️</span>
-      <span>MongoDB & MySQL</span>
-    </div>
-
-    <div class="highlight-item">
-      <span>🚀</span>
-      <span>REST API Development</span>
-    </div>
+    <div class="highlight-item"><span>📍</span><span>Indore, India</span></div>
+    <div class="highlight-item"><span>💼</span><span>4 Years Experience</span></div>
+    <div class="highlight-item"><span>⚙️</span><span>Node.js &amp; Express.js</span></div>
+    <div class="highlight-item"><span>🗄️</span><span>MongoDB &amp; MySQL</span></div>
+    <div class="highlight-item"><span>🚀</span><span>REST API Development</span></div>
   </div>
-
-  <!-- <a href="assets/amit_sharma.pdf" download="Amit_Sharma_Resume" class="resume-link">
-    Download Resume
-  </a> -->
-
-
-
-
 </section>
 
+<!-- ======== EXPERIENCE ======== -->
 <section id="experience" data-aos="fade-up">
-  <h2>Experience</h2>
-  <div class="card-grid">
-    <div class="card" data-tilt>
-      <h3><a class="company" href="https://carinasoftlabs.com" target="_blank" rel="noopener noreferrer">Carina Softlabs Inc.</a></h3>
-      <p>Nov 2024 – May 2025<br>Full Stack Developer</p>
+  <div class="section-header">
+      <!-- <span class="section-num">02</span> -->
+    <h2>Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <h3><a href="https://carinasoftlabs.com" target="_blank" rel="noopener noreferrer">Carina Softlabs Inc.</a></h3>
+        <div class="timeline-meta">
+          <span class="timeline-role">Full Stack Developer</span>
+          <span class="timeline-date">Nov 2024 – May 2025</span>
+        </div>
+      </div>
     </div>
-    <div class="card" data-tilt>
-      <h3><a class="company" href="https://www.pixlritllc.com/" target="_blank" rel="noopener noreferrer">Pixler IT Solution Pvt Ltd</a></h3>
-      <p>Jul 2021 - Nov 2024<br>Software Developer</p>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <h3><a href="https://www.pixlritllc.com/" target="_blank" rel="noopener noreferrer">Pixler IT Solution Pvt Ltd</a></h3>
+        <div class="timeline-meta">
+          <span class="timeline-role">Software Developer</span>
+          <span class="timeline-date">Jul 2021 – Nov 2024</span>
+        </div>
+      </div>
     </div>
-    <div class="card" data-tilt>
-      <h3><a class="company" href="http://www.ypsilonitsolutions.com/" target="_blank" rel="noopener noreferrer">Ypsilon IT Solutions</a></h3>
-      <p>Feb 2021 - Jul 2021<br>Trainee Developer</p>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <h3><a href="http://www.ypsilonitsolutions.com/" target="_blank" rel="noopener noreferrer">Ypsilon IT Solutions</a></h3>
+        <div class="timeline-meta">
+          <span class="timeline-role">Trainee Developer</span>
+          <span class="timeline-date">Feb 2021 – Jul 2021</span>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
+<!-- ======== PROJECTS ======== -->
 <section id="projects" data-aos="fade-up">
-  <h2>Projects</h2>
+  <div class="section-header">
+    <!-- <span class="section-num">03</span> -->
+    <h2>Projects</h2>
+    <div class="section-line"></div>
+  </div>
   <div class="card-grid">
+
     <a href="#modal-popil-tunes" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">Popil Tunes</span></h3>
-        <p>MP3 + OTT App with karaoke features and social interactions.</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">Popil Tunes</span></h3>
+        <p>MP3 + OTT app with karaoke creation, video streaming, and social interactions.</p>
       </div>
     </a>
+
     <a href="#modal-mmg" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">Millionaire Mind Games</span></h3>
-        <p>Mobile Gaming Application</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">Millionaire Mind Games</span></h3>
+        <p>Mobile gaming platform with points, rewards, and role-based dashboards.</p>
       </div>
     </a>
+
     <a href="#modal-tecs" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">Technical Supplies (TECS)</span></h3>
-        <p>Enterprise solution integrating HRMS, CRM and more.</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">Technical Supplies (TECS)</span></h3>
+        <p>Enterprise solution integrating HRMS, CRM, Overtime, and Cafeteria modules.</p>
       </div>
     </a>
+
     <a href="#modal-arabiansathome" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">ArabiansAtHome</span></h3>
-        <p>Social app for Arabian horse enthusiasts with media sharing.</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">ArabiansAtHome</span></h3>
+        <p>Social app for Arabian horse enthusiasts with media sharing and profiles.</p>
       </div>
     </a>
+
     <a href="#modal-kenocarwash" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">Keno Car Wash</span></h3>
-        <p>Car Wash Mobile Application</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">Keno Car Wash</span></h3>
+        <p>UAE-based on-demand eco-friendly car wash app with live tracking.</p>
       </div>
     </a>
+
     <a href="#modal-10000shotclub" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">10000shotclub</span></h3>
-        <p>A web app for kids to log basketball shots and compete on a summer leaderboard.</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">10000 Shot Club</span></h3>
+        <p>Basketball shot-tracking platform with leaderboards and coaching tools.</p>
       </div>
     </a>
+
     <a href="#modal-hannahmorr" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">Hannahmorr</span></h3>
-        <p>A luxury villa and hotel booking platform</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">Hannahmorr</span></h3>
+        <p>Luxury villa &amp; hotel booking platform with membership management.</p>
       </div>
     </a>
+
     <a href="#modal-mahigold" class="card-link">
-      <div class="card" data-tilt>
-        <h3><span class="company">Mahigold</span></h3>
-        <p>A mobile app for selling grains and farm produce.</p>
+      <div class="card">
+        <span class="card-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+        <h3><span style="color:var(--accent)">Mahigold</span></h3>
+        <p>Mobile app for a private agricultural firm to sell grains direct-to-consumer.</p>
       </div>
     </a>
+
   </div>
 </section>
 
-
-<!-- <section id="skills" data-aos="fade-up">
-  <h2>Skills</h2>
-  <div class="card-grid">
-
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-server"></i> Backend:</strong>
-      Node.js, Express.js, REST API Development, MVC Architecture
-    </div>
-
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-code"></i> Frontend:</strong>
-      JavaScript, HTML, CSS, jQuery (Basic)
-    </div>
-
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-database"></i> Database:</strong>
-      MySQL, MongoDB
-    </div>
-
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-tools"></i> Tools:</strong>
-      Git, GitHub, Postman
-    </div>
-
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-cogs"></i> Other:</strong>
-      API Design, Version Control
-    </div>
-
-  </div>
-</section> -->
-
+<!-- ======== SKILLS ======== -->
 <section id="skills" data-aos="fade-up">
-  <h2>Skills</h2>
-  <div class="card-grid">
+  <div class="section-header">
+    <!-- <span class="section-num">04</span> -->
+    <h2>Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-section-grid">
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-server"></i> Backend Development:</strong>
-      Node.js, Express.js, JavaScript, RESTful APIs, API Design, MVC Architecture
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-server"></i> Backend</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express.js</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">MVC Architecture</span>
+        <span class="skill-tag">API Design</span>
+        <span class="skill-tag">JavaScript</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-database"></i> Databases:</strong>
-      MongoDB, MySQL, Query Optimization, Schema Design, Database Optimization
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-database"></i> Databases</div>
+      <div class="skill-tags">
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Query Optimization</span>
+        <span class="skill-tag">Schema Design</span>
+        <span class="skill-tag">Database Optimization</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-code"></i> Frontend (Working Knowledge)::</strong>
-      HTML, CSS, jQuery, Angular
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-code"></i> Frontend (Working Knowledge)</div>
+      <div class="skill-tags">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">jQuery</span>
+        <span class="skill-tag">Angular</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-vials"></i> Tools:</strong>
-      Postman, Swagger, MongoDB Compass, phpMyAdmin, VS Code
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-vials"></i> Dev Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">Swagger</span>
+        <span class="skill-tag">MongoDB Compass</span>
+        <span class="skill-tag">phpMyAdmin</span>
+        <span class="skill-tag">VS Code</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-code-branch"></i> Version Control:</strong>
-      Git, GitHub
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-code-branch"></i> Version Control</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-tasks"></i> Project Management & Collaboration:</strong>
-      Jira, ClickUp, Monday.com, Trello, Slack, Microsoft Teams
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-tasks"></i> Collaboration</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">ClickUp</span>
+        <span class="skill-tag">Monday.com</span>
+        <span class="skill-tag">Trello</span>
+        <span class="skill-tag">Slack</span>
+        <span class="skill-tag">MS Teams</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-server"></i> Web Servers:</strong>
-      Apache, Nginx
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-server"></i> Web Servers </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Nginx</span>
+        <span class="skill-tag">Apache</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-cogs"></i> Deployment Tools:</strong>
-      PM2, PuTTY, FileZilla
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-server"></i>Deployment Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PM2</span>
+        <span class="skill-tag">PuTTY</span>
+        <span class="skill-tag">FileZilla</span>
+      </div>
     </div>
 
-    <div class="card" data-tilt>
-      <strong><i class="fas fa-cloud"></i> Cloud & Hosting (Working Knowledge):</strong>
-      AWS, Azure, Google Cloud Platform, cPanel
+    <div class="skill-group">
+      <div class="skill-group-title"><i class="fas fa-cloud"></i> Cloud & hosting (Working Knowledge)</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Azure</span>
+        <span class="skill-tag">Google Cloud</span>
+        <span class="skill-tag">cPanel</span>
+      </div>
     </div>
 
   </div>
 </section>
 
-
+<!-- ======== CONTACT ======== -->
 <section id="contact" data-aos="fade-up">
-  <h2>Contact</h2>
-  <p><strong>Email:</strong> <a href="mailto:amitsharma5934.as@gmail.com">amitsharma5934.as@gmail.com</a></p>
-  <br>
-  <div class="icons">
-    <a href="https://www.linkedin.com/in/amit-sharma-83a5b3184/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/amit-sharma-gearhead/" target="_blank"><i class="fab fa-github"></i></a>
+  <div class="section-header">
+    <!-- <span class="section-num">05</span> -->
+    <h2>Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-wrapper">
+    <a href="mailto:amitsharma5934.as@gmail.com" class="contact-item" style="text-decoration:none; color:inherit;">
+      <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">amitsharma5934.as@gmail.com</div>
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/amit-sharma-83a5b3184/" target="_blank" rel="noopener noreferrer" class="contact-item" style="text-decoration:none; color:inherit;">
+      <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">amit-sharma-83a5b3184</div>
+      </div>
+    </a>
+    <!-- <a href="https://github.com/amit-sharma-gearhead/" target="_blank" rel="noopener noreferrer" class="contact-item" style="text-decoration:none; color:inherit;">
+      <div class="contact-icon"><i class="fab fa-github"></i></div>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">amit-sharma-gearhead</div>
+      </div>
+    </a> -->
   </div>
 </section>
 
-<!--******************************* Models ************************************** -->
+<!-- ======== FOOTER ======== -->
+<footer>
+  <p>Built with <span>♥</span> by Amit Sharma &nbsp;·&nbsp; <span>Node.js</span> Backend Developer &nbsp;·&nbsp; Indore, India</p>
+</footer>
 
-<!-- Model Of Popil Tunes -->
+
+<!-- ======== PROJECT MODALS ======== -->
+
+<!-- Popil Tunes -->
 <div id="modal-popil-tunes" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-music" style="margin-right: 8px; color: #1abc9c;"></i>Popil Tunes</h2>
+    <h2><i class="fas fa-music" style="margin-right: 10px; color: var(--accent);"></i>Popil Tunes</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🎯 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      A feature-rich MP3 + OTT application offering karaoke clip creation, video streaming, and social connectivity
-      through following, likes, and comments—enhancing user engagement and entertainment.
-    </p>
+    <p class="modal-section-title">🎯 Overview</p>
+    <p>A feature-rich MP3 + OTT application offering karaoke clip creation, video streaming, and social connectivity through following, likes, and comments — enhancing user engagement and entertainment.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend APIs & logic</li>
-      <li><i class="fab fa-angular" style="color: #dd0031;"></i> Angular – Admin & Artist dashboards</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-node-js" style="color:#68a063"></i> Node.js &amp; Express.js – Backend APIs &amp; logic</li>
+      <li><i class="fab fa-angular" style="color:#dd0031"></i> Angular – Admin &amp; Artist dashboards</li>
       <li><i class="fas fa-database"></i> MongoDB – NoSQL database for dynamic content</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
       <li>🚀 Developed robust backend APIs for MP3 streaming and OTT media delivery</li>
       <li>🤝 Integrated real-time social features: follow, like, and comment systems</li>
       <li>🧩 Built modular admin and artist panels using Angular for easy content management</li>
     </ul>
 
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
-      <a href="https://play.google.com/store/apps/details?id=com.popil.tunes&hl=en_IN" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fab fa-google-play" style="margin-right: 6px;"></i> Google Play
+    <div class="modal-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.popid.tunes&hl=en_IN" target="_blank" class="btn btn-primary">
+        <i class="fab fa-google-play"></i> Google Play
       </a>
-      <a href="https://popiltunes.com" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-globe" style="margin-right: 6px;"></i> Visit Website
+      <a href="https://popiltunes.com" target="_blank" class="btn btn-ghost">
+        <i class="fas fa-globe"></i> Visit Website
       </a>
     </div>
-
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
-<!-- Model Of Millionaire Mind Games -->
+<!-- Millionaire Mind Games -->
 <div id="modal-mmg" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-gamepad" style="margin-right: 8px; color: #1abc9c;"></i>Millionaire Mind Games</h2>
+    <h2><i class="fas fa-gamepad" style="margin-right: 10px; color: var(--accent);"></i>Millionaire Mind Games</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🎯 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      A mobile game application where users can play interactive games, earn points, and redeem them for rewards.
-      The platform includes dynamic roles such as Admin, Manager, and Seller with dedicated dashboards.
-    </p>
+    <p class="modal-section-title">🎯 Overview</p>
+    <p>A mobile game application where users can play interactive games, earn points, and redeem them for rewards. The platform includes dynamic roles — Admin, Manager, and Seller — with dedicated dashboards.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend API development</li>
-      <li><i class="fab fa-react" style="color: #61dafb;"></i> React.js – Admin, Manager & Seller dashboards</li>
-      <li><i class="fas fa-database"></i> MongoDB – Flexible NoSQL database for storing user/game data</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-node-js" style="color:#68a063"></i> Node.js &amp; Express.js – Backend API development</li>
+      <li><i class="fab fa-react" style="color:#61dafb"></i> React.js – Admin, Manager &amp; Seller dashboards</li>
+      <li><i class="fas fa-database"></i> MongoDB – Flexible NoSQL database for user/game data</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
       <li>🎮 Developed backend APIs for the mobile application and role-based panels</li>
       <li>📊 Implemented game logic, points tracking, and redemption workflows</li>
       <li>🔐 Managed authentication, user data, and gameplay progress in MongoDB</li>
     </ul>
 
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
-      <a href="https://play.google.com/store/apps/details?id=com.MillionaireMindGames.MMG&hl=en_IN" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fab fa-google-play" style="margin-right: 6px;"></i> Google Play
+    <div class="modal-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.MillionaireMindGames.MMG&hl=en_IN" target="_blank" class="btn btn-primary">
+        <i class="fab fa-google-play"></i> Google Play
       </a>
-      <a href="https://millionairemindgames.uk/" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-globe" style="margin-right: 6px;"></i> Visit Website
+      <a href="https://millionairemindgames.uk/" target="_blank" class="btn btn-ghost">
+        <i class="fas fa-globe"></i> Visit Website
       </a>
     </div>
-
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
-
-<!-- Model Of Technical Supplies (TECS) -->
+<!-- TECS -->
 <div id="modal-tecs" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-network-wired" style="margin-right: 8px; color: #1abc9c;"></i>Technical Supplies (TECS)</h2>
+    <h2><i class="fas fa-network-wired" style="margin-right: 10px; color: var(--accent);"></i>Technical Supplies (TECS)</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🏢 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      An internal enterprise solution integrating HRMS, CRM, Overtime, Cafeteria, and other business modules—streamlining employee and administrative operations across departments.
-    </p>
+    <p class="modal-section-title">🏢 Overview</p>
+    <p>An internal enterprise solution integrating HRMS, CRM, Overtime, Cafeteria, and other business modules — streamlining employee and administrative operations across departments.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend APIs and microservices</li>
-      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel Lumen – Lightweight PHP framework for RESTful APIs</li>
-      <li><i class="fab fa-angular" style="color: #dd0031;"></i> Angular – User and admin dashboards</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-node-js" style="color:#68a063"></i> Node.js &amp; Express.js – Backend APIs and microservices</li>
+      <li><i class="fab fa-laravel" style="color:#f55247"></i> Laravel Lumen – Lightweight PHP framework for RESTful APIs</li>
+      <li><i class="fab fa-angular" style="color:#dd0031"></i> Angular – User and admin dashboards</li>
       <li><i class="fas fa-project-diagram"></i> Node-RED – Visual workflows and system automation</li>
       <li><i class="fas fa-code"></i> Symfony / OrangeHRM – HR module integrations</li>
       <li><i class="fas fa-database"></i> MySQL – Centralized relational database</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
       <li>⚙️ Developed and maintained features across HRMS, CRM, Overtime, and Cafeteria modules</li>
-      <li>🔧 Created RESTful APIs using both Node.js/Express.js and Laravel Lumen </li>
+      <li>🔧 Created RESTful APIs using both Node.js/Express.js and Laravel Lumen</li>
       <li>📊 Optimized database performance and redesigned schemas for scalable data management</li>
     </ul>
 
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
-      <a href="https://www.tecsintl.com" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-globe" style="margin-right: 6px;"></i> Visit Website
+    <div class="modal-actions">
+      <a href="https://www.tecsintl.com" target="_blank" class="btn btn-primary">
+        <i class="fas fa-globe"></i> Visit Website
       </a>
-      <a href="http://hrms.tecsintl.com" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-user-cog" style="margin-right: 6px;"></i> HRMS Portal
+      <a href="http://hrms.tecsintl.com" target="_blank" class="btn btn-ghost">
+        <i class="fas fa-user-cog"></i> HRMS Portal
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.tecs.hrms&hl=en&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fab fa-google-play" style="margin-right: 6px;"></i> Google Play
+      <a href="https://play.google.com/store/apps/details?id=com.tecs.hrms" target="_blank" class="btn btn-ghost">
+        <i class="fab fa-google-play"></i> Google Play
       </a>
     </div>
-
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
-<!-- Model Of ArabiansAtHome -->
+<!-- ArabiansAtHome -->
 <div id="modal-arabiansathome" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-horse" style="margin-right: 8px; color: #1abc9c;"></i>ArabiansAtHome</h2>
+    <h2><i class="fas fa-horse" style="margin-right: 10px; color: var(--accent);"></i>ArabiansAtHome</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🌐 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      ArabiansAtHome is a social networking app designed for Arabian horse enthusiasts, breeders, and experts to connect, share, and explore content around Arabian horses.
-      The platform features user profiles, media posts, and interactive features accessible via mobile and admin dashboards.
-    </p>
+    <p class="modal-section-title">🌐 Overview</p>
+    <p>A social networking app designed for Arabian horse enthusiasts, breeders, and experts to connect, share, and explore content. Features user profiles, media posts, and interactive social tools across mobile and admin dashboards.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Backend APIs for mobile and admin panels</li>
-      <li><i class="fab fa-react" style="color: #61dafb;"></i> React Native – Mobile application development</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-node-js" style="color:#68a063"></i> Node.js &amp; Express.js – Backend APIs for mobile and admin panels</li>
+      <li><i class="fab fa-react" style="color:#61dafb"></i> React Native – Mobile application development</li>
       <li><i class="fas fa-database"></i> MySQL – Relational database for structured user and media data</li>
-      <li><i class="fas fa-cloud-upload-alt" style="color: #34495e;"></i> Cloudinary – Cloud-based media storage and optimization</li>
+      <li><i class="fas fa-cloud-upload-alt"></i> Cloudinary – Cloud-based media storage and optimization</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
       <li>📱 Developed RESTful APIs for both the mobile app and admin dashboard</li>
       <li>🗄️ Designed and optimized MySQL database schema for efficient data storage and fast retrieval</li>
       <li>☁️ Integrated Cloudinary for image and video uploads, storage, and real-time delivery</li>
       <li>🧑‍💻 Collaborated with frontend developers to ensure seamless backend–frontend integration</li>
     </ul>
 
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
-      <a href="https://www.arabiansathome.com/" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-globe" style="margin-right: 6px;"></i> Visit Website
+    <div class="modal-actions">
+      <a href="https://www.arabiansathome.com/" target="_blank" class="btn btn-primary">
+        <i class="fas fa-globe"></i> Visit Website
       </a>
     </div>
-
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
-<!-- Model Of Keno Car Wash -->
+<!-- Keno Car Wash -->
 <div id="modal-kenocarwash" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-car" style="margin-right: 8px; color: #1abc9c;"></i>Keno Car Wash</h2>
+    <h2><i class="fas fa-car" style="margin-right: 10px; color: var(--accent);"></i>Keno Car Wash</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🧽 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      A leading UAE-based on-demand car wash and detailing service app, offering eco-friendly, biodegradable, and dry-wash technology delivered by trained professionals to customers’ location on tap of a button.
-    </p>
+    <p class="modal-section-title">🧽 Overview</p>
+    <p>A leading UAE-based on-demand car wash and detailing service app, offering eco-friendly, biodegradable, dry-wash technology delivered by trained professionals to the customer's location on the tap of a button.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express.js – Core API development</li>
-      <li><i class="fab fa-laravel" style="color: #f05340;"></i> Laravel – Admin panel and service dashboards</li>
-      <li><i class="fab fa-android" style="color: #3ddc84;"></i> Android – Native mobile app client</li>
-      <li><i class="fab fa-apple" style="color: #999;"></i> iOS – Native mobile app client</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-node-js" style="color:#68a063"></i> Node.js &amp; Express.js – Core API development</li>
+      <li><i class="fab fa-laravel" style="color:#f05340"></i> Laravel – Admin panel and service dashboards</li>
+      <li><i class="fab fa-android" style="color:#3ddc84"></i> Android – Native mobile app client</li>
+      <li><i class="fab fa-apple" style="color:#999"></i> iOS – Native mobile app client</li>
       <li><i class="fas fa-database"></i> MySQL – Backend relational database management</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">📱 Key Features</strong></p>
-    <ul style="line-height: 2;">
-      <li>On-demand & scheduled service bookings including monthly subscriptions, real-time tracking, Flexi Order, and multi-vehicle support</li>
-      <li>Live tracking of service provider (nicknamed “Ninja”), customizable in-app communication, and referral system</li>
-      <li>Eco-friendly dry washing, professional-grade biodegradable products, and premium car care experience</li>
+    <p class="modal-section-title">📱 Key Features</p>
+    <ul>
+      <li>On-demand &amp; scheduled service bookings including monthly subscriptions and multi-vehicle support</li>
+      <li>Live tracking of service provider ("Ninja"), customizable communication, and referral system</li>
+      <li>Eco-friendly dry washing with professional-grade biodegradable products</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
       <li>🛠 Designed and implemented RESTful APIs using Node.js/Express.js for mobile app and backend services</li>
       <li>📊 Built and enhanced the Laravel-based admin dashboard to manage services, bookings, and user data</li>
       <li>🤝 Collaborated with mobile dev teams to integrate APIs and ensure seamless mobile app performance</li>
     </ul>
 
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
-      <a href="https://www.keno.ae" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-globe" style="margin-right: 6px;"></i> Visit Website
+    <div class="modal-actions">
+      <a href="https://www.keno.ae" target="_blank" class="btn btn-primary">
+        <i class="fas fa-globe"></i> Visit Website
       </a>
     </div>
-
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
-<!-- Model Of 10000ShotClub -->
+<!-- 10000 Shot Club -->
 <div id="modal-10000shotclub" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-basketball-ball" style="margin-right: 8px; color: #1abc9c;"></i>10000ShotClub</h2>
+    <h2><i class="fas fa-basketball-ball" style="margin-right: 10px; color: var(--accent);"></i>10000 Shot Club</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🏀 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      A shot‑tracking platform built around the “10K Shot Challenge” — enabling users (ages elementary to college) to log basketball shooting sessions,
-      monitor daily and team progress, and compete via a real‑time leaderboard.
-    </p>
+    <p class="modal-section-title">🏀 Overview</p>
+    <p>A shot-tracking platform built around the "10K Shot Challenge" — enabling users (ages elementary to college) to log basketball shooting sessions, monitor daily and team progress, and compete via a real-time leaderboard.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel – Web app, admin dashboard & RESTful APIs</li>
-      <li><i class="fab fa-react" style="color: #61dafb;"></i> React Native – Mobile app for iOS/Android</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-laravel" style="color:#f55247"></i> Laravel – Web app, admin dashboard &amp; RESTful APIs</li>
+      <li><i class="fab fa-react" style="color:#61dafb"></i> React Native – Mobile app for iOS/Android</li>
       <li><i class="fas fa-database"></i> MySQL – Database for user sessions, shots logs, and leaderboards</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💡 Key Details</strong></p>
-    <ul style="line-height: 2;">
-      <li>Includes team and individual shot tracking with real-time updates on leaderboards</li>
-      <li>Supports structured daily routines (max 200 shots/day), challenge campaigns, and personalized tracking goals</li>
-      <li>Feature‑rich web dashboard for coaches/admins and cross‑platform React Native app for end users</li>
+    <p class="modal-section-title">💡 Key Details</p>
+    <ul>
+      <li>Team and individual shot tracking with real-time leaderboard updates</li>
+      <li>Structured daily routines (max 200 shots/day), challenge campaigns, and personalized tracking goals</li>
+      <li>Feature-rich web dashboard for coaches/admins and cross-platform React Native app for end users</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
-      <li>🚀 Built and maintained Laravel-based web app and APIs powering both the admin portal and app backend</li>
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
+      <li>🚀 Built and maintained Laravel-based web app and APIs powering the admin portal and app backend</li>
       <li>📊 Developed administrative features for managing users, teams, shooting data, and leaderboards</li>
       <li>🗃 Designed and optimized MySQL schemas and queries for real-time performance and scalability</li>
     </ul>
 
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
-      <a href="https://10000shotclub.com" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-globe" style="margin-right: 6px;"></i> Visit Website
+    <div class="modal-actions">
+      <a href="https://10000shotclub.com" target="_blank" class="btn btn-primary">
+        <i class="fas fa-globe"></i> Visit Website
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.shotclub10k&pcampaignid=web_share" target="_blank" class="resume-link" style="background: #3ddc84; color: white;">
-        <i class="fab fa-google-play" style="margin-right: 6px;"></i> Google Play
+      <a href="https://play.google.com/store/apps/details?id=com.shotclub10k&pcampaignid=web_share" target="_blank" class="btn btn-ghost">
+        <i class="fab fa-google-play"></i> Google Play
       </a>
-      <a href="https://apps.apple.com/us/app/10000shotclub/id6475808340" target="_blank" class="resume-link" style="background: #999; color: white;">
-        <i class="fab fa-apple" style="margin-right: 6px;"></i> App Store
+      <a href="https://apps.apple.com/us/app/10000shotclub/id6475808340" target="_blank" class="btn btn-ghost">
+        <i class="fab fa-apple"></i> App Store
       </a>
     </div>
-
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
-<!-- Model Of HannahMorr -->
+<!-- HannahMorr -->
 <div id="modal-hannahmorr" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-hotel" style="margin-right: 8px; color: #1abc9c;"></i>HannahMorr</h2>
+    <h2><i class="fas fa-hotel" style="margin-right: 10px; color: var(--accent);"></i>HannahMorr</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🌐 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      HannahMorr is a luxury travel web application specializing in exclusive villa bookings and curated accommodations around the world.  
-      The platform features a sleek web UI and admin dashboard to manage listings, enquiries, memberships, and bookings.
-    </p>
+    <p class="modal-section-title">🌐 Overview</p>
+    <p>A luxury travel web application specializing in exclusive villa bookings and curated accommodations around the world. Features a sleek web UI and admin dashboard to manage listings, enquiries, memberships, and bookings.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel – Server-side web app, admin panel, and RESTful APIs</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-laravel" style="color:#f55247"></i> Laravel – Server-side web app, admin panel, and RESTful APIs</li>
       <li><i class="fas fa-database"></i> MySQL – Structured database for villa listings, user data, and bookings</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
       <li>🛠 Developed and maintained Laravel-powered web application and admin backend</li>
-      <li>🗄 Designed and optimized MySQL schema for high-performance data retrieval and reliability</li>
+      <li>🗄 Designed and optimized MySQL schema for high-performance data retrieval</li>
       <li>🔧 Implemented features for managing villa inventory, user memberships, enquiries, and booking workflows</li>
     </ul>
 
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
-      <a href="https://hannahmorr.com/" target="_blank" class="resume-link" style="background: #1abc9c; color: white;">
-        <i class="fas fa-globe" style="margin-right: 6px;"></i> Visit Website
+    <div class="modal-actions">
+      <a href="https://hannahmorr.com/" target="_blank" class="btn btn-primary">
+        <i class="fas fa-globe"></i> Visit Website
       </a>
     </div>
-
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
-<!-- Model Of Mahigold -->
+<!-- Mahigold -->
 <div id="modal-mahigold" class="project-modal">
   <div class="modal-content" data-aos="zoom-in">
     <a href="#projects" class="close" title="Close">&times;</a>
-    <h2><i class="fas fa-seedling" style="margin-right: 8px; color: #1abc9c;"></i>Mahigold</h2>
+    <h2><i class="fas fa-seedling" style="margin-right: 10px; color: var(--accent);"></i>Mahigold</h2>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🌾 Overview</strong></p>
-    <p style="line-height: 1.8;">
-      Mahigold is a mobile application developed for a private agricultural firm to directly sell its grains and farm produce to customers. The app allows users to browse, order, and get products delivered seamlessly, enhancing the firm’s digital outreach and operational efficiency.
-    </p>
+    <p class="modal-section-title">🌾 Overview</p>
+    <p>A mobile application developed for a private agricultural firm to directly sell its grains and farm produce to customers. Users can browse, order, and get products delivered seamlessly — enhancing the firm's digital outreach and operational efficiency.</p>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">🛠 Tech Stack</strong></p>
-    <ul style="line-height: 2;">
-      <li><i class="fab fa-laravel" style="color: #f55247;"></i> Laravel – RESTful APIs, web interface, and admin dashboard</li>
-      <li><i class="fab fa-react" style="color: #61dafb;"></i> React Native – Cross-platform mobile application</li>
+    <p class="modal-section-title">🛠 Tech Stack</p>
+    <ul>
+      <li><i class="fab fa-laravel" style="color:#f55247"></i> Laravel – RESTful APIs, web interface, and admin dashboard</li>
+      <li><i class="fab fa-react" style="color:#61dafb"></i> React Native – Cross-platform mobile application</li>
       <li><i class="fas fa-database"></i> MySQL – Structured database for inventory, orders, and customer data</li>
     </ul>
 
-    <p style="margin-top: 1.5rem;"><strong style="color: #1abc9c;">💼 Responsibilities</strong></p>
-    <ul style="line-height: 2;">
+    <p class="modal-section-title">💼 Responsibilities</p>
+    <ul>
       <li>🔧 Developed Laravel-based REST APIs to power the mobile app and admin portal</li>
       <li>📦 Implemented product listing, cart, order management, and delivery tracking features</li>
       <li>📊 Handled MySQL database architecture, queries, and performance tuning</li>
     </ul>
 
-    <div style="margin-top: 2rem; text-align: right;">
-      <a href="#projects" class="resume-link" style="background: transparent; border: 2px solid #1abc9c;">← Back to Projects</a>
-    </div>
+    <div class="modal-back"><a href="#projects" class="btn btn-ghost">← Back to Projects</a></div>
   </div>
 </div>
 
 
-<!--******************************* Models ************************************** -->
-
-
-<!-- Floating WhatsApp Button -->
-<!-- <a
-  href="https://wa.me/91number?text=Hi%20Amit,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
-  class="whatsapp-float"
-  target="_blank"
-  aria-label="Chat on WhatsApp"
->
-  <i class="fab fa-whatsapp"></i>
-</a> -->
-
+<!-- ======== SCRIPTS ======== -->
 <script type="module">
 import Chatbox from 'https://cdn.jsdelivr.net/npm/@chatvolt/embeds@latest/dist/chatbox/index.js';
-
-const widget = await Chatbox.initBubble({
-  agentId: 'cmeiav3bo02iogfl73qraze3x',
-});
+const widget = await Chatbox.initBubble({ agentId: 'cmeiav3bo02iogfl73qraze3x' });
 </script>
 
-<!-- Script -->
-
-<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <script>
   // Typed.js
   new Typed(".typed-text", {
-    strings: ["Software Developer", "Node.js Developer", "Backend Engineer"],
-    typeSpeed: 60,
-    backSpeed: 30,
+    strings: ["Software Developer", "Node.js Developer", "Backend Engineer", "API Architect"],
+    typeSpeed: 55,
+    backSpeed: 28,
+    backDelay: 1600,
     loop: true,
-    showCursor: false
+    showCursor: true,
+    cursorChar: '_'
   });
 
-  // AOS Init
-  AOS.init();
+  // AOS
+  AOS.init({ duration: 600, once: true, offset: 60 });
 
-  // particles.js
+  // Particles
   particlesJS("particles-js", {
     particles: {
-      number: { value: 60 },
+      number: { value: 45 },
       color: { value: "#1abc9c" },
       shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 3 },
+      opacity: { value: 0.35, random: true },
+      size: { value: 2.5, random: true },
       line_linked: {
         enable: true,
-        distance: 150,
+        distance: 160,
         color: "#1abc9c",
-        opacity: 0.4,
+        opacity: 0.25,
         width: 1
       },
-      move: { enable: true, speed: 2 }
+      move: { enable: true, speed: 1.5, random: true }
     },
     interactivity: {
       detect_on: "canvas",
       events: { onhover: { enable: true, mode: "repulse" } },
-      modes: { repulse: { distance: 100 } }
+      modes: { repulse: { distance: 80 } }
     }
   });
+
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  if (window.matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+  }
+
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('#main-nav a[href^="#"]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`#main-nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
 </script>
-<script>
-  const cursor = document.createElement('div');
-  cursor.classList.add('custom-cursor');
-  document.body.appendChild(cursor);
-
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-  });
-</script>
-
-
 
 </body>
 </html>
