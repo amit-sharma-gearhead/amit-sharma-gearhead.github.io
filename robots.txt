@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amit-sharma-gearhead.github.io/sitemap.xml

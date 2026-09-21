@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0b1a20" />
+  <title>404 — Page Not Found | Amit Sharma</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1a20'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' text-anchor='middle' fill='%231abc9c'%3E%3E_%3C/text%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --accent: #1abc9c;
+      --bg-deep: #0b1a20;
+      --bg-mid: #0f2027;
+      --text: #e8f0f2;
+      --muted: #8fa9b0;
+      --border: rgba(26, 188, 156, 0.25);
+      --err: #ff6b6b;
+      --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    }
+    html, body { height: 100%; }
+    body {
+      background: linear-gradient(135deg, #0b1a20 0%, #0f2027 45%, #162d37 100%);
+      color: var(--text);
+      font-family: var(--mono);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+    .win {
+      width: 100%;
+      max-width: 680px;
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.4), 0 0 40px rgba(26,188,156,.2);
+      overflow: hidden;
+    }
+    .bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: rgba(255,255,255,.04); border-bottom: 1px solid var(--border); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); opacity: .5; }
+    .title { margin-left: 8px; font-size: .75rem; color: var(--muted); }
+    .body { padding: 20px 20px 24px; font-size: .88rem; line-height: 1.8; }
+    .body div { white-space: pre-wrap; word-break: break-word; }
+    .acc { color: var(--accent); }
+    .mute { color: var(--muted); }
+    .err { color: var(--err); }
+    .code { font-size: clamp(3.2rem, 14vw, 5.5rem); font-weight: 700; line-height: 1.1; color: var(--accent); margin: 1rem 0 .25rem; letter-spacing: -.02em; }
+    .caret { display: inline-block; width: .55em; height: 1em; margin-left: 2px; vertical-align: text-bottom; background: var(--accent); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .btn {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: .85rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: .6rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      transition: .25s ease;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #13957a; border-color: #13957a; }
+    .btn-ghost { background: transparent; color: var(--text); }
+    .btn-ghost:hover { color: var(--accent); }
+    @media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+  </style>
+</head>
+<body>
+  <main class="win">
+    <div class="bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="title">amit@portfolio: ~</span>
+    </div>
+    <div class="body">
+      <div><span class="acc">amit@portfolio:~$</span> cat <span id="path">/this-page</span></div>
+      <div class="err">cat: <span id="path2">/this-page</span>: No such file or directory</div>
+      <div class="code">404</div>
+      <div class="acc">Page not found.</div>
+      <div class="mute">The page you're looking for wandered off, got deprecated, or never existed.</div>
+      <div class="mute">Blame the cache. It's always the cache. 🐛</div>
+      <div><span class="acc">amit@portfolio:~$</span> <span class="caret"></span></div>
+      <div class="actions">
+        <a class="btn btn-primary" href="/">cd ~ (go home)</a>
+        <a class="btn btn-ghost" href="/#projects">ls projects/</a>
+        <a class="btn btn-ghost" href="/#contact">contact --help</a>
+      </div>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var p = window.location.pathname || '/';
+      var a = document.getElementById('path'), b = document.getElementById('path2');
+      if (a) a.textContent = p;
+      if (b) b.textContent = p;
+    })();
+  </script>
+</body>
+</html>

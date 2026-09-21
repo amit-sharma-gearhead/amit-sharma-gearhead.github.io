@@ -765,3 +765,75 @@ footer span { color: var(--accent); }
 
   .modal-actions { justify-content: flex-start; }
 }
+
+/* ========================================
+   BOOT TERMINAL (loading screen)
+   ======================================== */
+#boot-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg-deep);
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  cursor: default;
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+.boot-active #boot-screen { display: flex; }
+#boot-screen.boot-hide { opacity: 0; pointer-events: none; }
+
+.boot-window {
+  width: 100%;
+  max-width: 640px;
+  background: var(--bg-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow), 0 0 40px var(--accent-glow);
+  overflow: hidden;
+  font-family: var(--font-mono);
+}
+.boot-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--border);
+}
+.boot-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--text-muted); opacity: 0.5; }
+.boot-title { margin-left: 8px; font-size: 0.75rem; color: var(--text-muted); }
+
+.boot-body {
+  padding: 18px 18px 20px;
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  min-height: 320px;
+}
+.boot-line { white-space: pre-wrap; word-break: break-word; }
+.boot-prompt { color: var(--accent); }
+.boot-tag { color: var(--text-muted); }
+.boot-ok { color: var(--accent); }
+.boot-val { color: var(--text-muted); }
+.boot-ready { margin-top: 6px; color: var(--accent); font-weight: 500; }
+.boot-progress { margin-top: 14px; color: var(--accent); white-space: pre; overflow: hidden; }
+
+.boot-caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: boot-blink 1s steps(1) infinite;
+}
+@keyframes boot-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .boot-caret { animation: none; } }
+
+@media (max-width: 480px) {
+  .boot-body { font-size: 0.72rem; padding: 14px; min-height: 300px; }
+  .boot-progress { font-size: 0.68rem; }
+}

@@ -1,0 +1,681 @@
+/* ==========================================================
+   FEATURES  (interactive terminal, themes, sound, cursor fx,
+   funny touches). Purely additive: the default look of the
+   site is untouched. Remove the <link> to this file (and the
+   features.js <script>) to switch all of it off.
+   ========================================================== */
+
+/* ---------- Boot screen always keeps its own dark palette ---------- */
+#boot-screen {
+  --accent: #1abc9c;
+  --accent-glow: rgba(26, 188, 156, 0.25);
+  --bg-deep: #0b1a20;
+  --bg-mid: #0f2027;
+  --text-primary: #e8f0f2;
+  --text-muted: #8fa9b0;
+  --border: rgba(26, 188, 156, 0.18);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================
+   LIGHT THEME   (<html data-theme="light">)
+   ========================================================== */
+html[data-theme="light"] {
+  --accent: #0b8a72;
+  --accent-dark: #086b58;
+  --accent-glow: rgba(11, 138, 114, 0.14);
+  --bg-deep: #f4f8f9;
+  --bg-mid: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --text-primary: #14262d;
+  --text-muted: #4c6670;
+  --border: rgba(11, 138, 114, 0.28);
+  --shadow: 0 4px 24px rgba(20, 38, 45, 0.12);
+}
+html[data-theme="light"] body { background: linear-gradient(135deg, #f4f8f9 0%, #eaf2f4 45%, #dfeaee 100%); }
+html[data-theme="light"] a:hover { color: var(--accent-dark); }
+html[data-theme="light"] nav { background: rgba(244, 248, 249, 0.88); }
+html[data-theme="light"] header { background: rgba(255, 255, 255, 0.55); }
+html[data-theme="light"] footer { background: rgba(20, 38, 45, 0.05); }
+html[data-theme="light"] header h1 {
+  background-image: linear-gradient(90deg, #0b8a72, #2563eb, #7c3aed, #0891b2, #0b8a72);
+  text-shadow: none;
+}
+html[data-theme="light"] .custom-cursor { mix-blend-mode: normal; }
+html[data-theme="light"] .project-modal { background: rgba(20, 38, 45, 0.55); }
+html[data-theme="light"] .modal-content { background: rgba(255, 255, 255, 0.98); box-shadow: 0 0 60px rgba(20, 38, 45, 0.25); }
+html[data-theme="light"] .card:hover { box-shadow: 0 8px 32px rgba(20, 38, 45, 0.15), 0 0 0 1px var(--border); }
+
+/* ==========================================================
+   HACKER THEME  (<html data-theme="hacker">)
+   ========================================================== */
+html[data-theme="hacker"] {
+  --accent: #00ff41;
+  --accent-dark: #00c832;
+  --accent-glow: rgba(0, 255, 65, 0.16);
+  --bg-deep: #000000;
+  --bg-mid: #020b04;
+  --bg-card: rgba(0, 255, 65, 0.05);
+  --bg-card-hover: rgba(0, 255, 65, 0.1);
+  --text-primary: #c8ffd6;
+  --text-muted: #52b36b;
+  --border: rgba(0, 255, 65, 0.3);
+  --shadow: 0 4px 24px rgba(0, 255, 65, 0.12);
+}
+html[data-theme="hacker"] body { background: #000; font-family: var(--font-mono); }
+html[data-theme="hacker"] a:hover { color: #7dff9c; }
+html[data-theme="hacker"] #particles-js { display: none; }
+html[data-theme="hacker"] nav { background: rgba(0, 0, 0, 0.85); }
+html[data-theme="hacker"] header { background: rgba(0, 0, 0, 0.55); }
+html[data-theme="hacker"] footer { background: rgba(0, 0, 0, 0.6); }
+html[data-theme="hacker"] header h1 {
+  background-image: linear-gradient(90deg, #eaffef, #00ff41, #7dffa0, #00ff41, #eaffef);
+  text-shadow: 0 0 14px rgba(0, 255, 65, 0.45);
+}
+html[data-theme="hacker"] .btn-primary,
+html[data-theme="hacker"] .btn-primary:hover,
+html[data-theme="hacker"] nav .resume-btn { color: #000 !important; }
+html[data-theme="hacker"] .project-modal { background: rgba(0, 0, 0, 0.92); }
+html[data-theme="hacker"] .modal-content { background: rgba(2, 11, 4, 0.98); box-shadow: 0 0 60px rgba(0, 255, 65, 0.15); }
+
+#pf-matrix { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.3; pointer-events: none; }
+
+/* ==========================================================
+   SHARED UI TOKENS (terminal + toast are always dark)
+   ========================================================== */
+.pf-term, .pf-toast {
+  --t-bg: #0b1a20;
+  --t-bar: rgba(255, 255, 255, 0.05);
+  --t-fg: #e8f0f2;
+  --t-mute: #8fa9b0;
+  --t-acc: #1abc9c;
+  --t-border: rgba(26, 188, 156, 0.35);
+  --t-glow: rgba(26, 188, 156, 0.22);
+}
+html[data-theme="hacker"] .pf-term,
+html[data-theme="hacker"] .pf-toast {
+  --t-bg: #000;
+  --t-bar: rgba(0, 255, 65, 0.07);
+  --t-fg: #c8ffd6;
+  --t-mute: #52b36b;
+  --t-acc: #00ff41;
+  --t-border: rgba(0, 255, 65, 0.4);
+  --t-glow: rgba(0, 255, 65, 0.22);
+}
+
+/* ==========================================================
+   DOCK  (bottom-right, where the chatbot used to be: terminal launcher)
+   TOP   (top-right: theme + hacker + sound buttons)
+   ========================================================== */
+.pf-dock {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pf-top {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9990;
+  display: flex;
+  gap: 8px;
+}
+.pf-round {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-mid);
+  color: var(--accent);
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.pf-round:hover { transform: translateY(-2px); box-shadow: 0 0 16px var(--accent-glow); background: var(--bg-card-hover); }
+.pf-round:focus-visible, .pf-launch:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.pf-round[aria-pressed="true"] { background: var(--accent); color: #fff; }
+html[data-theme="hacker"] .pf-round[aria-pressed="true"] { color: #000; }
+
+/* --- terminal launcher: filled, pulsing, hard to miss --- */
+.pf-launch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 48px;
+  padding: 0 1.15rem 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  box-shadow: 0 6px 22px var(--accent-glow), 0 0 0 4px var(--accent-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.pf-launch:hover { transform: translateY(-2px) scale(1.04); background: var(--accent-dark); border-color: var(--accent-dark); }
+.pf-launch i { font-size: 1.05rem; }
+.pf-launch kbd {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 1px 7px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.22);
+  color: inherit;
+}
+.pf-launch::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 2px solid var(--accent);
+  animation: pf-ring 2s ease-out infinite;
+  pointer-events: none;
+}
+.pf-launch.is-open::after, .pf-launch.is-seen::after { animation: none; opacity: 0; }
+html[data-theme="hacker"] .pf-launch { color: #000; }
+html[data-theme="hacker"] .pf-launch kbd { background: rgba(0, 0, 0, 0.18); }
+@keyframes pf-ring {
+  0%   { transform: scale(1);    opacity: 0.85; }
+  100% { transform: scale(1.35, 1.7); opacity: 0; }
+}
+
+/* --- hint bubble above the launcher --- */
+.pf-hint {
+  position: fixed;
+  right: 16px;
+  bottom: 76px;
+  z-index: 9989;
+  max-width: min(300px, calc(100vw - 32px));
+  padding: 10px 14px;
+  background: var(--bg-mid);
+  color: var(--text-primary);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  box-shadow: 0 8px 30px var(--accent-glow);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+.pf-hint.is-on { opacity: 1; transform: none; visibility: visible; transition: opacity 0.3s ease, transform 0.3s ease; animation: pf-bob 2.4s ease-in-out 0.4s infinite; }
+.pf-hint::after {
+  content: '';
+  position: absolute;
+  right: 64px;
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  background: var(--bg-mid);
+  border-right: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+.pf-hint b { color: var(--accent); }
+@keyframes pf-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+/* ==========================================================
+   TERMINAL PANEL
+   ========================================================== */
+.pf-term {
+  position: fixed;
+  right: 16px;
+  bottom: 80px;
+  z-index: 9991;
+  width: min(960px, calc(100vw - 32px));
+  height: min(640px, 76vh);
+  display: flex;
+  flex-direction: column;
+  background: var(--t-bg);
+  color: var(--t-fg);
+  border: 1px solid var(--t-border);
+  border-radius: 14px;
+  box-shadow: 0 14px 60px rgba(0, 0, 0, 0.55), 0 0 50px var(--t-glow);
+  font-family: var(--font-mono);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
+}
+.pf-term.is-open {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.pf-term-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--t-bar);
+  border-bottom: 1px solid var(--t-border);
+  flex-shrink: 0;
+}
+.pf-term-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--t-mute); opacity: 0.5; }
+.pf-term-title { margin-left: 6px; font-size: 0.85rem; color: var(--t-mute); flex: 1; }
+.pf-term-close {
+  background: none;
+  border: 0;
+  color: var(--t-mute);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+.pf-term-close:hover { color: var(--t-acc); }
+.pf-term-out {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px 20px;
+  font-size: 1rem;
+  line-height: 1.7;
+  overscroll-behavior: contain;
+}
+.pf-term-out div { white-space: pre-wrap; word-break: break-word; }
+.pf-term-out a { color: var(--t-acc); text-decoration: underline; text-underline-offset: 3px; }
+.pf-term-out a:hover { color: var(--t-fg); }
+.pf-t-acc { color: var(--t-acc); }
+.pf-t-mute { color: var(--t-mute); }
+.pf-t-err { color: #ff6b6b; }
+/* the command line: same look as the rest of the terminal (theme colours, no background) */
+.pf-term-row { display: flex; align-items: center; }
+.pf-term-prompt { color: var(--t-acc); white-space: pre; font-weight: 700; text-shadow: 0 0 12px var(--t-acc); margin-right: 10px; }
+.pf-term-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--t-fg);
+  font: inherit;
+  caret-color: var(--t-acc);
+  caret-shape: block;
+}
+
+/* ==========================================================
+   TOAST
+   ========================================================== */
+.pf-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 9992;
+  max-width: min(92vw, 460px);
+  padding: 10px 18px;
+  background: var(--t-bg);
+  color: var(--t-fg);
+  border: 1px solid var(--t-border);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), 0 0 24px var(--t-glow);
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.pf-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+/* ==========================================================
+   FX CANVAS (cursor sparks + confetti)
+   ========================================================== */
+#pf-fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 9997; pointer-events: none; }
+
+/* ==========================================================
+   FOOTER FUN STRIP + HIRE BUTTON
+   ========================================================== */
+.pf-fun {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+.pf-joke { color: var(--text-muted); min-height: 1.4em; transition: opacity 0.35s ease; }
+.pf-joke.is-fading { opacity: 0; }
+.pf-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+.pf-badge {
+  font: inherit;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 3px 12px;
+}
+button.pf-badge { cursor: pointer; }
+button.pf-badge:hover { border-color: var(--accent); color: var(--accent); }
+.pf-dont {
+  font: inherit;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.pf-dont:hover { color: var(--accent); border-color: var(--accent); }
+.pf-hire { margin-top: 1.75rem; }
+
+/* ==========================================================
+   FUNNY EFFECTS
+   ========================================================== */
+@keyframes pf-shake-kf {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(4px); }
+}
+.pf-shake { animation: pf-shake-kf 0.5s ease; }
+.pf-quake header, .pf-quake section, .pf-quake footer { animation: pf-shake-kf 0.6s ease; }
+
+@keyframes pf-disco-kf { to { filter: hue-rotate(360deg); } }
+html.pf-disco { animation: pf-disco-kf 1.2s linear 3; }
+
+.pf-bug {
+  position: fixed;
+  top: -40px;
+  z-index: 9996;
+  font-size: 1.6rem;
+  pointer-events: none;
+  animation: pf-bug-fall linear forwards;
+}
+@keyframes pf-bug-fall { to { transform: translateY(calc(100vh + 80px)) rotate(360deg); } }
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+@media (max-width: 819px) {
+  /* on tablets/phones the nav fills the width, so these scroll with the hero instead of covering the nav links */
+  .pf-top { position: absolute; top: 10px; right: 10px; }
+}
+@media (max-width: 560px) {
+  .pf-top .pf-round { width: 36px; height: 36px; font-size: 0.85rem; }
+}
+@media (max-width: 480px) {
+  .pf-term { left: 8px; right: 8px; width: auto; bottom: 72px; height: min(70vh, 560px); }
+  .pf-dock { right: 8px; bottom: 12px; }
+  .pf-hint { right: 8px; bottom: 70px; }
+  .pf-term-out { font-size: 0.82rem; padding: 12px 14px 6px; }
+  .pf-term-input { font-size: 16px; } /* stops iOS zoom-on-focus */
+  .pf-launch kbd { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-term, .pf-toast, .pf-hint { transition: none; }
+  .pf-launch::after, .pf-hint.is-on { animation: none; }
+  .pf-shake, .pf-quake header, .pf-quake section, .pf-quake footer, html.pf-disco { animation: none; }
+}
+
+/* ==========================================================
+   RESUME MODAL
+   ========================================================== */
+.pf-rm {
+  position: fixed;
+  inset: 0;
+  z-index: 9995;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  visibility: hidden;
+  pointer-events: none;
+  transition: visibility 0s linear 0.3s;
+}
+.pf-rm.is-open { visibility: visible; pointer-events: auto; transition: none; }
+.pf-rm-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 10, 13, 0.68);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+html[data-theme="light"] .pf-rm-backdrop { background: rgba(20, 38, 45, 0.45); }
+html[data-theme="hacker"] .pf-rm-backdrop { background: rgba(0, 0, 0, 0.8); }
+.pf-rm.is-open .pf-rm-backdrop { opacity: 1; }
+
+.pf-rm-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  width: min(780px, 100%);
+  max-height: calc(100vh - 2rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 2.2rem 2.2rem 2rem;
+  background: var(--bg-mid);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.55), 0 0 70px var(--accent-glow);
+  opacity: 0;
+  transform: translateY(26px) scale(0.94);
+  transition: opacity 0.28s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pf-rm.is-open .pf-rm-card { opacity: 1; transform: none; }
+.pf-rm-card::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background-size: 200% 100%;
+  animation: pf-rm-sweep 3s linear infinite;
+}
+@keyframes pf-rm-sweep { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+.pf-rm-x {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.pf-rm-x:hover, .pf-rm-x:focus-visible { color: var(--accent); border-color: var(--accent); transform: rotate(90deg); outline: none; }
+
+/* --- paper preview --- */
+.pf-rm-paper { flex: 0 0 200px; perspective: 800px; animation: pf-float 5s ease-in-out infinite; }
+@keyframes pf-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.pf-rm-sheet {
+  position: relative;
+  width: 200px;
+  height: 262px;
+  padding: 20px 17px;
+  border-radius: 8px;
+  background: #f7fafb;
+  color: #14262d;
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  transform: rotateX(var(--prx, 0deg)) rotateY(var(--pry, 0deg)) rotate(-2deg);
+  transition: transform 0.18s ease;
+  overflow: hidden;
+}
+.pf-rm-pname { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; }
+.pf-rm-prole { font-family: var(--font-mono); font-size: 0.62rem; color: #0b8a72; margin-bottom: 12px; }
+.pf-rm-line { display: block; height: 6px; border-radius: 3px; background: #d3e0e5; margin: 8px 0; width: var(--w, 100%); }
+.pf-rm-line.h { height: 8px; width: 42%; background: #0b8a72; margin-top: 15px; }
+.pf-rm-badge {
+  position: absolute; right: 10px; top: 10px;
+  font: 700 0.58rem var(--font-mono);
+  background: #e5484d; color: #fff;
+  padding: 2px 6px; border-radius: 4px;
+}
+.pf-rm-scan {
+  position: absolute; left: 0; right: 0; top: -46px; height: 46px;
+  background: linear-gradient(to bottom, transparent, rgba(26, 188, 156, 0.35), transparent);
+  animation: pf-rm-scan 2.8s ease-in-out infinite;
+}
+@keyframes pf-rm-scan { 0% { top: -46px; } 100% { top: 105%; } }
+html[data-theme="hacker"] .pf-rm-sheet { background: #03140a; color: #c8ffd6; box-shadow: 0 0 40px rgba(0, 255, 65, 0.25), 0 0 0 1px rgba(0, 255, 65, 0.3); }
+html[data-theme="hacker"] .pf-rm-line { background: #0f4d22; }
+html[data-theme="hacker"] .pf-rm-line.h { background: #00ff41; }
+html[data-theme="hacker"] .pf-rm-prole { color: #00ff41; }
+html[data-theme="hacker"] .pf-rm-scan { background: linear-gradient(to bottom, transparent, rgba(0, 255, 65, 0.4), transparent); }
+
+/* --- main column --- */
+.pf-rm-main { flex: 1; min-width: 0; }
+.pf-rm-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.pf-rm-title { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; color: var(--text-primary); }
+.pf-rm-sub { color: var(--text-muted); font-size: 0.9rem; margin: 0.35rem 0 1.3rem; }
+.pf-rm-opts { display: flex; flex-direction: column; gap: 0.8rem; }
+
+.pf-rm-opt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.1rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+}
+.pf-rm.is-open .pf-rm-opt { animation: pf-rm-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards; animation-delay: calc(var(--i, 0) * 90ms + 160ms); }
+@keyframes pf-rm-in { from { opacity: 0; transform: translateY(16px) scale(0.97); } }
+.pf-rm-opt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), var(--accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+.pf-rm-opt:hover::before, .pf-rm-opt:focus-visible::before { opacity: 1; }
+.pf-rm-opt:hover, .pf-rm-opt:focus-visible { border-color: var(--accent); box-shadow: 0 10px 34px var(--accent-glow); outline: none; }
+
+.pf-rm-ico {
+  position: relative;
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-glow);
+  color: var(--accent);
+  font-size: 1.2rem;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, color 0.2s ease;
+}
+.pf-rm-opt:hover .pf-rm-ico, .pf-rm-opt:focus-visible .pf-rm-ico { transform: scale(1.12) rotate(-6deg); background: var(--accent); color: #fff; }
+html[data-theme="hacker"] .pf-rm-opt:hover .pf-rm-ico, html[data-theme="hacker"] .pf-rm-opt:focus-visible .pf-rm-ico { color: #000; }
+.pf-rm-opt[data-act="download"]:hover .pf-rm-ico i { animation: pf-rm-bob 0.75s ease-in-out infinite; }
+.pf-rm-opt[data-act="view"]:hover .pf-rm-ico i { animation: pf-rm-blink 1.6s ease-in-out infinite; }
+@keyframes pf-rm-bob { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
+@keyframes pf-rm-blink { 0%, 86%, 100% { transform: scaleY(1); } 92% { transform: scaleY(0.1); } }
+
+.pf-rm-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pf-rm-txt strong { font-size: 1.05rem; font-weight: 700; }
+.pf-rm-txt small { color: var(--text-muted); font-size: 0.82rem; }
+.pf-rm-opt kbd {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+@media (hover: none) { .pf-rm-opt kbd, .pf-rm-foot .pf-rm-keys { display: none; } }
+
+/* busy = spinner ring, done = animated check */
+.pf-rm-check { display: none; width: 26px; height: 26px; }
+.pf-rm-check path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 26; stroke-dashoffset: 26; }
+.pf-rm-opt.is-busy { pointer-events: none; }
+.pf-rm-opt.is-busy .pf-rm-ico::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 17px;
+  border: 2px solid transparent;
+  border-top-color: var(--accent);
+  animation: pf-spin 0.7s linear infinite;
+}
+@keyframes pf-spin { to { transform: rotate(360deg); } }
+.pf-rm-opt.is-done { pointer-events: none; border-color: var(--accent); background: var(--accent-glow); }
+.pf-rm-opt.is-done .pf-rm-ico { background: var(--accent); color: #fff; transform: none; }
+html[data-theme="hacker"] .pf-rm-opt.is-done .pf-rm-ico { color: #000; }
+.pf-rm-opt.is-done .pf-rm-ico i { display: none; }
+.pf-rm-opt.is-done .pf-rm-check { display: block; }
+.pf-rm-opt.is-done .pf-rm-check path { animation: pf-rm-draw 0.45s ease forwards; }
+@keyframes pf-rm-draw { to { stroke-dashoffset: 0; } }
+
+.pf-rm-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.pf-rm-chip { border: 1px solid var(--border); border-radius: 99px; padding: 2px 10px; }
+.pf-rm-foot .pf-rm-keys { margin-left: auto; }
+
+@media (max-width: 640px) {
+  .pf-rm-paper { display: none; }
+  .pf-rm-card { padding: 1.6rem 1.25rem 1.4rem; }
+  .pf-rm-title { font-size: 1.3rem; padding-right: 2rem; }
+  .pf-rm-opt { padding: 0.85rem; }
+  .pf-rm-ico { width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-rm-card, .pf-rm-backdrop { transition: none; }
+  .pf-rm-card::before, .pf-rm-paper, .pf-rm-scan, .pf-rm.is-open .pf-rm-opt,
+  .pf-rm-opt:hover .pf-rm-ico i, .pf-rm-opt.is-busy .pf-rm-ico::after { animation: none; }
+  .pf-rm-opt.is-done .pf-rm-check path { animation: none; stroke-dashoffset: 0; }
+}

@@ -37,12 +37,38 @@
   }
   </script>
 
+  <!-- SEO & performance additions -->
+  <meta name="theme-color" content="#0b1a20">
+  <meta property="og:site_name" content="Amit Sharma — Portfolio" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:image:width" content="1561" />
+  <meta property="og:image:height" content="875" />
+  <meta property="og:image:alt" content="Amit Sharma — Backend Developer portfolio preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Amit Sharma — Backend Developer" />
+  <meta name="twitter:description" content="Portfolio of Amit Sharma. 4 years building scalable backend systems with Node.js, Express.js, MongoDB & MySQL." />
+  <meta name="twitter:image" content="https://amit-sharma-gearhead.github.io/assets/images/preview-image.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1a20'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='30' font-weight='700' text-anchor='middle' fill='%231abc9c'%3E%3E_%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Amit Sharma — Portfolio",
+    "url": "https://amit-sharma-gearhead.github.io/",
+    "inLanguage": "en"
+  }
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="features.css" />
 
   <!-- AOS CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
@@ -59,6 +85,22 @@
   </script>
 </head>
 <body>
+
+<!-- ======== BOOT TERMINAL (loading screen) ======== -->
+<script>document.documentElement.classList.add('boot-active');try{if(localStorage.getItem('pf-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<div id="boot-screen" aria-hidden="true">
+  <div class="boot-window">
+    <div class="boot-bar">
+      <span class="boot-dot"></span><span class="boot-dot"></span><span class="boot-dot"></span>
+      <span class="boot-title">amit@portfolio: ~</span>
+    </div>
+    <div class="boot-body">
+      <div class="boot-line boot-cmd"><span class="boot-prompt">amit@portfolio:~$</span> <span id="boot-typed"></span><span class="boot-caret"></span></div>
+      <div id="boot-log"></div>
+      <div class="boot-progress" id="boot-progress" style="visibility:hidden"></div>
+    </div>
+  </div>
+</div>
 
 <div id="particles-js"></div>
 <div class="custom-cursor" id="cursor"></div>
@@ -669,10 +711,12 @@
 
 
 <!-- ======== SCRIPTS ======== -->
+<!-- Chatvolt chatbot: disabled for now. To turn it back on, delete this comment line and the closing marker line below.
 <script type="module">
 import Chatbox from 'https://cdn.jsdelivr.net/npm/@chatvolt/embeds@latest/dist/chatbox/index.js';
 const widget = await Chatbox.initBubble({ agentId: 'cmeiav3bo02iogfl73qraze3x' });
 </script>
+-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -745,6 +789,118 @@ const widget = await Chatbox.initBubble({ agentId: 'cmeiav3bo02iogfl73qraze3x' }
   }, { rootMargin: '-40% 0px -55% 0px' });
   sections.forEach(s => observer.observe(s));
 </script>
+
+<!-- ======== BOOT TERMINAL SCRIPT ======== -->
+<script>
+(function () {
+  var screen = document.getElementById('boot-screen');
+  if (!screen) return;
+
+  var typedEl = document.getElementById('boot-typed');
+  var logEl   = document.getElementById('boot-log');
+  var progEl  = document.getElementById('boot-progress');
+  var done = false;
+
+  var COMMAND = './load-portfolio.sh';
+  var STEPS = [
+    ['Initializing portfolio environment', ''],
+    ['Loading profile',    'Amit Sharma'],
+    ['Loading role',       'Backend Developer'],
+    ['Loading experience', '3 companies · 4 years'],
+    ['Loading projects',   '8 projects'],
+    ['Loading skills',     'Node.js · Express.js · MongoDB · MySQL'],
+    ['Loading contact',    'email · linkedin'],
+    ['Starting portfolio', '']
+  ];
+
+  // one random funny line per load
+  STEPS.splice(STEPS.length - 1, 0, [pick([
+    'Reticulating splines',
+    'Brewing coffee ☕',
+    'Convincing the compiler it is fine',
+    'Feeding the hamsters that power the server 🐹',
+    'Asking Stack Overflow nicely',
+    'Blaming the cache',
+    'Warming up the coffee machine'
+  ]), '']);
+
+  function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+  function sfx(n) { try { if (window.PortfolioSFX) window.PortfolioSFX.play(n); } catch (e) {} }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  function bar(pct) {
+    var total = 24, filled = Math.round(total * pct / 100);
+    return '[' + new Array(filled + 1).join('█') + new Array(total - filled + 1).join('░') + '] ' + pct + '%';
+  }
+
+  function finish() {
+    if (done) return;
+    done = true;
+    screen.classList.add('boot-hide');
+    setTimeout(function () {
+      document.documentElement.classList.remove('boot-active');
+      if (screen.parentNode) screen.parentNode.removeChild(screen);
+    }, 500);
+  }
+
+  // keep the page underneath from scrolling while the terminal is up
+  function block(e) { e.preventDefault(); }
+  screen.addEventListener('wheel', block, { passive: false });
+  screen.addEventListener('touchmove', block, { passive: false });
+
+  // safety net: never leave the visitor stuck on the loader
+  setTimeout(finish, 8000);
+
+  (async function run() {
+    try {
+      await wait(150);
+      for (var i = 0; i < COMMAND.length; i++) {
+        typedEl.textContent += COMMAND.charAt(i);
+        await wait(28);
+      }
+      await wait(220);
+
+      progEl.style.visibility = 'visible';
+      progEl.textContent = bar(0);
+
+      for (var n = 0; n < STEPS.length; n++) {
+        var line = document.createElement('div');
+        line.className = 'boot-line';
+        var tag = document.createElement('span');
+        tag.className = 'boot-tag';
+        tag.textContent = '[ .. ]';
+        var txt = document.createElement('span');
+        txt.textContent = ' ' + STEPS[n][0];
+        line.appendChild(tag);
+        line.appendChild(txt);
+        if (STEPS[n][1]) {
+          var val = document.createElement('span');
+          val.className = 'boot-val';
+          val.textContent = ' → ' + STEPS[n][1];
+          line.appendChild(val);
+        }
+        logEl.appendChild(line);
+
+        await wait(160);
+        tag.textContent = '[ OK ]';
+        tag.className = 'boot-tag boot-ok';
+        sfx('tick');
+        progEl.textContent = bar(Math.round((n + 1) / STEPS.length * 100));
+      }
+
+      var ready = document.createElement('div');
+      ready.className = 'boot-line boot-ready';
+      ready.textContent = '✔ Portfolio ready.';
+      logEl.appendChild(ready);
+      sfx('ready');
+      await wait(350);
+    } catch (e) { /* fall through and reveal the site */ }
+    finish();
+  })();
+})();
+</script>
+
+<script src="features.js" defer></script>
 
 </body>
 </html>
