@@ -39,7 +39,7 @@ html[data-theme="light"] nav { background: rgba(244, 248, 249, 0.88); }
 html[data-theme="light"] header { background: rgba(255, 255, 255, 0.55); }
 html[data-theme="light"] footer { background: rgba(20, 38, 45, 0.05); }
 html[data-theme="light"] header h1 {
-  background-image: linear-gradient(90deg, #0b8a72, #2563eb, #7c3aed, #0891b2, #0b8a72);
+  background-image: linear-gradient(90deg, #0b8a72, #2563eb, #7c3aed, #0891b2, #0b8a72, #2563eb, #0b8a72);
   text-shadow: none;
 }
 html[data-theme="light"] .custom-cursor { mix-blend-mode: normal; }
@@ -70,7 +70,7 @@ html[data-theme="hacker"] nav { background: rgba(0, 0, 0, 0.85); }
 html[data-theme="hacker"] header { background: rgba(0, 0, 0, 0.55); }
 html[data-theme="hacker"] footer { background: rgba(0, 0, 0, 0.6); }
 html[data-theme="hacker"] header h1 {
-  background-image: linear-gradient(90deg, #eaffef, #00ff41, #7dffa0, #00ff41, #eaffef);
+  background-image: linear-gradient(90deg, #eaffef, #9dffb5, #00ff41, #7dffa0, #00ff41, #9dffb5, #eaffef);
   text-shadow: 0 0 14px rgba(0, 255, 65, 0.45);
 }
 html[data-theme="hacker"] .btn-primary,
@@ -105,8 +105,10 @@ html[data-theme="hacker"] .pf-toast {
 }
 
 /* ==========================================================
-   DOCK  (bottom-right, where the chatbot used to be: terminal launcher)
-   TOP   (top-right: theme + hacker + sound buttons)
+   DOCK  (bottom-right, where the chatbot used to be: terminal launcher only.
+   Theme, hacker mode and sound have no on-screen buttons; they're reachable
+   through the terminal (theme <dark|light|hacker>, matrix, sound <on|off>)
+   or the Konami code — the underlying features are all still there.)
    ========================================================== */
 .pf-dock {
   position: fixed;
@@ -117,33 +119,6 @@ html[data-theme="hacker"] .pf-toast {
   align-items: center;
   gap: 10px;
 }
-.pf-top {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 9990;
-  display: flex;
-  gap: 8px;
-}
-.pf-round {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--bg-mid);
-  color: var(--accent);
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-.pf-round:hover { transform: translateY(-2px); box-shadow: 0 0 16px var(--accent-glow); background: var(--bg-card-hover); }
-.pf-round:focus-visible, .pf-launch:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.pf-round[aria-pressed="true"] { background: var(--accent); color: #fff; }
-html[data-theme="hacker"] .pf-round[aria-pressed="true"] { color: #000; }
 
 /* --- terminal launcher: filled, pulsing, hard to miss --- */
 .pf-launch {
@@ -166,6 +141,7 @@ html[data-theme="hacker"] .pf-round[aria-pressed="true"] { color: #000; }
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .pf-launch:hover { transform: translateY(-2px) scale(1.04); background: var(--accent-dark); border-color: var(--accent-dark); }
+.pf-launch:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .pf-launch i { font-size: 1.05rem; }
 .pf-launch kbd {
   font-family: var(--font-mono);
@@ -411,13 +387,6 @@ html.pf-disco { animation: pf-disco-kf 1.2s linear 3; }
 /* ==========================================================
    MOBILE
    ========================================================== */
-@media (max-width: 819px) {
-  /* on tablets/phones the nav fills the width, so these scroll with the hero instead of covering the nav links */
-  .pf-top { position: absolute; top: 10px; right: 10px; }
-}
-@media (max-width: 560px) {
-  .pf-top .pf-round { width: 36px; height: 36px; font-size: 0.85rem; }
-}
 @media (max-width: 480px) {
   .pf-term { left: 8px; right: 8px; width: auto; bottom: 72px; height: min(70vh, 560px); }
   .pf-dock { right: 8px; bottom: 12px; }

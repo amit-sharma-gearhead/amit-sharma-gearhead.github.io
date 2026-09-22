@@ -714,18 +714,10 @@
      DOCK  (terminal / theme / hacker / sound buttons)
      --------------------------------------------------------- */
   var UI = {
-    dock: null, top: null, hint: null, b: {},
+    dock: null, hint: null, b: {},
     build: function () {
       var self = this, launch;
-      function round(parent, id, label, icon, fn) {
-        var b = h('button', { 'class': 'pf-round', type: 'button', title: label, 'aria-label': label, 'data-sfx': '1' });
-        b.appendChild(h('i', { 'class': 'fas ' + icon }));
-        b.addEventListener('click', fn);
-        self.b[id] = b;
-        parent.appendChild(b);
-      }
-      this.dock = h('div', { 'class': 'pf-dock pf-ui' });   // bottom-left
-      this.top = h('div', { 'class': 'pf-top pf-ui' });     // top-right
+      this.dock = h('div', { 'class': 'pf-dock pf-ui' });   // bottom-right (launcher only)
 
       launch = h('button', {
         'class': 'pf-launch', type: 'button', title: 'Open terminal ( ` )', 'aria-label': 'Open terminal',
@@ -737,16 +729,9 @@
       launch.addEventListener('click', function () { Term.toggle(); });
       this.b.term = launch;
       this.dock.appendChild(launch);
-
-      round(this.top, 'theme', 'Switch theme', 'fa-sun', function () { Theme.toggleBase(); Sound.play('toggle'); });
-      round(this.top, 'hacker', 'Toggle hacker mode', 'fa-user-secret', function () {
-        Theme.setHacker(!Theme.hacker); Sound.play(Theme.hacker ? 'success' : 'toggle');
-      });
-      round(this.top, 'sound', 'Mute sound', 'fa-volume-high', function () {
-        Sound.setMuted(!Sound.muted); self.sync(); Sound.play('click');
-      });
       doc.body.appendChild(this.dock);
-      doc.body.appendChild(this.top);
+      // Theme, hacker mode and sound have no on-screen buttons; use the terminal
+      // (theme <dark|light|hacker>, matrix, sound <on|off>) or the Konami code.
 
       // attention bubble above the launcher (after the boot screen, until the terminal is opened)
       this.hint = h('div', { 'class': 'pf-hint pf-ui', role: 'note' });
@@ -761,17 +746,10 @@
     },
     hideHint: function () { if (this.hint) this.hint.classList.remove('is-on'); },
     sync: function () {
-      var b = this.b, light = Theme.base === 'light';
-      if (!this.dock) return;
+      var b = this.b;
+      if (!this.dock || !b.term) return;
       b.term.classList.toggle('is-open', Term.isOpen);
       b.term.setAttribute('aria-expanded', String(Term.isOpen));
-      b.theme.firstChild.className = 'fas ' + (light ? 'fa-moon' : 'fa-sun');
-      b.theme.title = light ? 'Switch to dark theme' : 'Switch to light theme';
-      b.theme.setAttribute('aria-label', b.theme.title);
-      b.hacker.setAttribute('aria-pressed', String(Theme.hacker));
-      b.sound.firstChild.className = 'fas ' + (Sound.muted ? 'fa-volume-xmark' : 'fa-volume-high');
-      b.sound.title = Sound.muted ? 'Unmute sound' : 'Mute sound';
-      b.sound.setAttribute('aria-label', b.sound.title);
     }
   };
 
@@ -1099,6 +1077,53 @@
   };
 
   /* ---------------------------------------------------------
+     NAME MORPH: glowing terminal text decrypts, then "compiles" into the platinum italic name.
+     The real <h1> text is never changed (SEO / screen readers / terminal all keep "Amit Sharma");
+     the terminal text is a separate decorative layer that fades away.
+     --------------------------------------------------------- */
+  var NameFX = {
+    /* Decrypt effect only: characters scramble in, but the font/colour never changes
+       (the header stays JetBrains Mono with the flowing gradient throughout). Since
+       every glyph is the same fixed width, scrambling never shifts the layout.
+       The heading is hidden by default (see style.css) and only revealed once it
+       already holds scrambled text, so the plain name is never shown first. */
+    GLYPHS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@*+=<>',
+
+    reveal: function (h1) { h1.classList.add('pf-name-ready'); },
+
+    init: function () {
+      var self = this, h1 = $('header h1'), text;
+      if (!h1) return;
+      text = clean(h1.textContent);
+      if (!text || reduceMotion) { this.reveal(h1); return; }
+      h1.setAttribute('aria-label', text);          // screen readers get the real name even mid-scramble
+      whenBootDone(function () {
+        try { self.run(h1, text); } catch (e) { h1.textContent = text; self.reveal(h1); }
+      });
+    },
+
+    run: function (h1, text) {
+      var self = this, n = text.length, frame = 0, total = 34;
+      h1.textContent = this.scramble(text, 0);
+      this.reveal(h1);                              // first paint after this is already scrambled, never plain
+      var id = setInterval(function () {
+        frame++;
+        h1.textContent = self.scramble(text, Math.floor((frame / total) * n));
+        if (frame > total) { clearInterval(id); h1.textContent = text; }
+      }, 40);
+    },
+
+    scramble: function (text, revealCount) {
+      var out = '', i, ch;
+      for (i = 0; i < text.length; i++) {
+        ch = text.charAt(i);
+        out += (ch === ' ' || i < revealCount) ? ch : this.GLYPHS.charAt(Math.floor(Math.random() * this.GLYPHS.length));
+      }
+      return out;
+    }
+  };
+
+  /* ---------------------------------------------------------
      GLOBAL WIRING
      --------------------------------------------------------- */
   function isTyping(t) {
@@ -1106,6 +1131,7 @@
   }
 
   function init() {
+    NameFX.init();
     UI.build();
     Fun.build();
     Theme.apply();
@@ -1140,7 +1166,7 @@
 
     // make the site's custom cursor ring react over the new controls too
     var ring = $('#cursor');
-    var HOVER = '.pf-dock button, .pf-top button, .pf-fun button, .pf-hire-btn, .pf-term-close, .pf-rm-opt, .pf-rm-x';
+    var HOVER = '.pf-dock button, .pf-fun button, .pf-hire-btn, .pf-term-close, .pf-rm-opt, .pf-rm-x';
     if (ring) {
       doc.addEventListener('mouseover', function (e) { if (e.target.closest && e.target.closest(HOVER)) ring.classList.add('hovered'); });
       doc.addEventListener('mouseout', function (e) { if (e.target.closest && e.target.closest(HOVER)) ring.classList.remove('hovered'); });
