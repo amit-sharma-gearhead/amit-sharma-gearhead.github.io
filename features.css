@@ -648,3 +648,43 @@ html[data-theme="hacker"] .pf-rm-opt.is-done .pf-rm-ico { color: #000; }
   .pf-rm-opt:hover .pf-rm-ico i, .pf-rm-opt.is-busy .pf-rm-ico::after { animation: none; }
   .pf-rm-opt.is-done .pf-rm-check path { animation: none; stroke-dashoffset: 0; }
 }
+
+/* ==========================================================
+   ABOUT PHOTO  (profile photo + highlight badges stacked below it)
+   ========================================================== */
+.about-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+.about-photo-wrap {
+  flex: 0 0 auto;
+  width: 220px;
+}
+.about-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), 0 0 0 4px var(--accent-glow);
+  transition: var(--transition);
+}
+.about-photo:hover {
+  box-shadow: var(--shadow), 0 0 0 4px var(--accent-glow), 0 0 32px var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+.about-text { flex: 1; min-width: 0; }
+.about-text p:first-child { margin-top: 0; }
+
+/* highlight badges: a horizontal row spanning the full width below the photo + text */
+.about-highlights { margin-top: 2rem; }
+
+@media (max-width: 768px) {
+  .about-grid { flex-direction: column; align-items: center; text-align: center; gap: 1.75rem; }
+  .about-photo-wrap { width: 240px; }
+  .about-highlights { justify-content: center; margin-top: 1.75rem; }
+}

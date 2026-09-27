@@ -326,7 +326,7 @@
      --------------------------------------------------------- */
   var Data = {
     name: function () { return clean(($('header h1') || {}).textContent) || 'Amit Sharma'; },
-    about: function () { return $$('#about > p').map(function (p) { return clean(p.textContent); }).filter(Boolean); },
+    about: function () { return $$('#about p').map(function (p) { return clean(p.textContent); }).filter(Boolean); },
     highlights: function () {
       return $$('.highlight-item').map(function (it) {
         return $$('span', it).map(function (s) { return clean(s.textContent); }).join(' ');
